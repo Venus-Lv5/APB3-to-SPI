@@ -1,0 +1,5 @@
+sim/*.vcd filter=lfs diff=lfs merge=lfs -text
+sim/*.fst filter=lfs diff=lfs merge=lfs -text
+sim/*.wlf filter=lfs diff=lfs merge=lfs -text
+sim/*.bin filter=lfs diff=lfs merge=lfs -text
+sim/*.log filter=lfs diff=lfs merge=lfs -text
