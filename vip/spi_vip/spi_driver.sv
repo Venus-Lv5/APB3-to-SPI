@@ -16,6 +16,8 @@ class spi_driver extends uvm_driver #(spi_transaction);
          `uvm_fatal(get_type_name(), $sformatf("Failed to get spi_vif from uvm_config_db"))
       if(!uvm_config_db#(spi_configuration)::get(this, "", "cfg", cfg))
          `uvm_fatal(get_type_name(), $sformatf("Failed to get spi_configuration from uvm_config_db"))
+         
+      half_bit = 1e9/(2*cfg.freq);
    endfunction : build_phase
 
    virtual task run_phase(uvm_phase phase);
@@ -77,7 +79,6 @@ class spi_driver extends uvm_driver #(spi_transaction);
    endtask
 
    task master_drive_sclk();
-      half_bit = 1e9/(2*cfg.freq);
       if(!cfg.cdte)
          #(half_bit*1ns);
 
@@ -103,6 +104,7 @@ class spi_driver extends uvm_driver #(spi_transaction);
          @(negedge spi_vif.SCLK or posedge spi_vif.SS[cfg.slave_id]);
          port = req.data[cfg.word-1-i];
       end
+      #(half_bit*2*1ns);
    endtask
 
    task drive_cpha0_cpol1(input spi_transaction req, ref logic port);
@@ -111,6 +113,7 @@ class spi_driver extends uvm_driver #(spi_transaction);
          @(posedge spi_vif.SCLK or posedge spi_vif.SS[cfg.slave_id]);
          port = req.data[cfg.word-1-i];
       end
+      #(half_bit*2*1ns);
    endtask
 
    task drive_cpha1_cpol0(input spi_transaction req, ref logic port);
@@ -118,6 +121,7 @@ class spi_driver extends uvm_driver #(spi_transaction);
          @(posedge spi_vif.SCLK or posedge spi_vif.SS[cfg.slave_id]);
          port = req.data[cfg.word-1-i];
       end
+      #(half_bit*1ns);
    endtask
 
    task drive_cpha1_cpol1(input spi_transaction req, ref logic port);
@@ -125,6 +129,7 @@ class spi_driver extends uvm_driver #(spi_transaction);
          @(negedge spi_vif.SCLK or posedge spi_vif.SS[cfg.slave_id]);
          port = req.data[cfg.word-1-i];
       end
+      #(half_bit*1ns);
    endtask
 
 endclass

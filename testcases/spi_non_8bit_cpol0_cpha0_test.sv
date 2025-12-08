@@ -8,23 +8,24 @@ class spi_non_8bit_cpol0_cpha0_test extends spi_base_test;
    virtual function void build_phase(uvm_phase phase);
       super.build_phase(phase);
       
+      assert (apb_freq.randomize() with {
+         freq == 100;
+         })
+      else 
+         `uvm_fatal(get_type_name(), "Failed to randomize apb_configuration")
+      
       assert (cfg.randomize() with {
          mode == spi_configuration::SLAVE;
          word == 8;
          cpol == 0;
          cpha == 0;
          cdte == 0;
-         freq == 10_000_000;
+         freq inside {[(apb_freq.freq*1e6)/(2*256) : (apb_freq.freq*1e6)/2]};
+         //freq == 10_000_000;
          slave_id == 0;
          })
       else 
          `uvm_fatal(get_type_name(), "Failed to randomize spi_configuration")
-         
-      assert (apb_freq.randomize() with {
-         freq == 20;
-         })
-      else 
-         `uvm_fatal(get_type_name(), "Failed to randomize apb_configuration")
 
       config_spi(cfg);
       config_apb_freq(apb_freq);
@@ -45,9 +46,9 @@ class spi_non_8bit_cpol0_cpha0_test extends spi_base_test;
          		repeat (3) begin
             		seq = slave_sequence::type_id::create("seq");
             		seq.start(env.spi_agt.sequencer);
-					
-					repeat (2) @(posedge apb_vif.PCLK);
-            		regmodel.RBR.read(status, data);
+          		repeat (2) @(posedge apb_vif.PCLK);
+      				regmodel.RBR.read(status, data);
+
             		//regmodel.FSR.read(status, data);
          end
          `uvm_info("run_phase", "slave transfer DONE", UVM_LOW)
@@ -63,6 +64,7 @@ class spi_non_8bit_cpol0_cpha0_test extends spi_base_test;
 	         `uvm_info("run_phase", "APB transfer DONE", UVM_LOW)
 			end
       join
+   
       env.scoreboard.compare();
       phase.drop_objection(this);
    endtask : run_phase

@@ -139,11 +139,11 @@ class spi_monitor extends uvm_monitor;
    task capture_ss();
       bit [3:0] ss_val = 4'b1111;
       bit [3:0] pre_ss_val = 4'b1111;
+
       wait(apb_vif.PRESETn == 1);
       forever begin
       		@(posedge apb_vif.PCLK or negedge apb_vif.PCLK);
       		ss_val = spi_vif.SS;
-         
          if(pre_ss_val != ss_val) begin
          		pre_ss_val = ss_val;
          		if (ss_val != 4'b1111)

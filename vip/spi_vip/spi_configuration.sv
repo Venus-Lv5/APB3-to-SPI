@@ -15,7 +15,6 @@ class spi_configuration extends uvm_object;
       		  bit [7:0]			div_val;
 
       constraint c_mode 			{ mode 		inside {MASTER, SLAVE};}
-      constraint c_freq 			{ freq 		inside {[200_000:50_000_000]};}
       constraint c_word 			{ word 		inside {8, 16};}
       constraint c_slave_id 	{ slave_id 	inside {[0:3]};}
 

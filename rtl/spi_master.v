@@ -130,14 +130,14 @@ module spi_master(
     //==========================================================================
     reg [15:0] r_tx_shift;
     reg [15:0] r_rx_shift;
-    reg [3:0]  r_tx_idx;
+    reg [4:0]  r_tx_idx;
     reg [3:0]  r_rx_idx;
     reg        r_mosi;
 
     reg [15:0] r_rx_data;
     reg        r_rx_wr;
 
-    assign o_MOSI    = r_frame_active ? r_mosi : 1'b0;
+    assign o_MOSI    = r_mosi;
     assign o_rx_data = r_rx_data;
     assign o_rx_wr   = r_rx_wr;
 
@@ -158,17 +158,20 @@ module spi_master(
                                     : {8'h00, i_tx_data[7:0]};
 
                 r_rx_shift <= 16'h0;
-                r_tx_idx   <= w_bit_cnt - 1'b1;  
                 r_rx_idx   <= 4'd0;
 
-                if (!i_cpha)
-                    r_mosi <= (i_wls ? i_tx_data[w_bit_cnt-1]
+                if (!i_cpha) begin
+                  r_tx_idx   <= w_bit_cnt - 1'b1;  
+                  r_mosi <= (i_wls ? i_tx_data[w_bit_cnt-1]
                                      : i_tx_data[7]);
+               end
+               else 
+                  r_tx_idx = w_bit_cnt;
             end
 
             // SHIFT TX (MOSI)
             if (c_shift_en && w_shift_edge && r_frame_active) begin
-                if (r_tx_idx != 4'd0) begin
+                if (r_tx_idx != 5'd0) begin
                     r_tx_idx <= r_tx_idx - 1'b1;
                     r_mosi   <= r_tx_shift[r_tx_idx-1];
                 end

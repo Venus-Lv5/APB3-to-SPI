@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module testbench;
    import uvm_pkg::*;
    import test_pkg::*;
