@@ -2,22 +2,27 @@ class spi_monitor extends uvm_monitor;
    `uvm_component_utils(spi_monitor);
 
    int half_bit;
+   bit cnt_en;
    virtual spi_if spi_vif;
    virtual apb_if apb_vif;
    spi_configuration cfg;
    
    event miso_capture_done;
    event mosi_capture_done;
+   event mosi_capture_start;
+   event frame_done;
 
    uvm_analysis_port #(spi_transaction) spi_observe_port_mosi;
    uvm_analysis_port #(spi_transaction) spi_observe_port_miso;
    uvm_analysis_port #(bit [3:0])       spi_observe_port_ss;
+   uvm_analysis_port #(int)         spi_observe_port_sclk_freq;
 
    function new(string name = "spi_monitor", uvm_component parent);
       super.new(name, parent);
       spi_observe_port_mosi = new("spi_obverse_port_mosi", this);
       spi_observe_port_miso = new("spi_observe_port_miso", this);
       spi_observe_port_ss   = new("spi_observe_port_ss",   this);
+      spi_observe_port_sclk_freq = new("spi_observe_port_sclk_freq", this);
    endfunction
 
    virtual function void build_phase(uvm_phase phase);
@@ -29,15 +34,20 @@ class spi_monitor extends uvm_monitor;
       if(!uvm_config_db#(spi_configuration)::get(this,"","cfg",cfg))
          `uvm_fatal(get_type_name(),"Failed to get cfg from uvm_config_db")
       if(cfg.mode == spi_configuration::MASTER)
-         half_bit = 1_000_000_000 / (2 * cfg.freq);     
+         half_bit = 1_000_000_000 / (2 * cfg.freq);   
+         
+      cnt_en = 1;
    endfunction : build_phase
 
    virtual task run_phase(uvm_phase phase);
       fork
          capture_mosi();
          capture_miso();
-         check_freq();
          capture_ss(); 
+         if (cnt_en)
+            check_freq();
+         if (cnt_en)
+         		count_edge();
       join
    endtask : run_phase
 
@@ -50,22 +60,22 @@ class spi_monitor extends uvm_monitor;
          wait(spi_vif.SS != 4'b1111);
          while(spi_vif.SS != 4'b1111) begin
             data = '0;
-
+				->mosi_capture_start;
             if(cfg.cpha ^ cfg.cpol)
-               @(negedge spi_vif.SCLK or posedge spi_vif.SS[cfg.slave_id]);
+               @(negedge spi_vif.SCLK or spi_vif.SS ==4'b1111);
             else
-               @(posedge spi_vif.SCLK or posedge spi_vif.SS[cfg.slave_id]);
+               @(posedge spi_vif.SCLK or spi_vif.SS ==4'b1111);
 
-            if(spi_vif.SS[cfg.slave_id])
+            if(spi_vif.SS ==4'b1111)
                break;
 
             data[cfg.word-1] = spi_vif.MOSI;
-            for(bit_idx = 1; bit_idx < cfg.word && !spi_vif.SS[cfg.slave_id]; bit_idx++) begin
+            for(bit_idx = 1; bit_idx < cfg.word && spi_vif.SS !=4'b1111; bit_idx++) begin
                if(cfg.cpha ^ cfg.cpol)
-                  @(negedge spi_vif.SCLK or posedge spi_vif.SS[cfg.slave_id]);
+                  @(negedge spi_vif.SCLK or spi_vif.SS ==4'b1111);
                else
-                  @(posedge spi_vif.SCLK or posedge spi_vif.SS[cfg.slave_id]);
-               if(spi_vif.SS[cfg.slave_id])
+                  @(posedge spi_vif.SCLK or spi_vif.SS ==4'b1111);
+               if(spi_vif.SS ==4'b1111)
                   break;
                data[cfg.word-1-bit_idx] = spi_vif.MOSI;
             end
@@ -76,7 +86,7 @@ class spi_monitor extends uvm_monitor;
               if(!cfg.cdte)
                break;
          end
-         @(posedge spi_vif.SS[cfg.slave_id]);
+         @(spi_vif.SS ==4'b1111);
       end
    endtask
 
@@ -86,22 +96,22 @@ class spi_monitor extends uvm_monitor;
       int bit_idx;
       forever begin
          wait(spi_vif.SS != 4'b1111);
-         while(!spi_vif.SS[cfg.slave_id]) begin
+         while(spi_vif.SS !=4'b1111) begin
             data = '0;
             if(cfg.cpha ^ cfg.cpol)
-               @(negedge spi_vif.SCLK or posedge spi_vif.SS[cfg.slave_id]);
+               @(negedge spi_vif.SCLK or spi_vif.SS ==4'b1111);
             else
-               @(posedge spi_vif.SCLK or posedge spi_vif.SS[cfg.slave_id]);
-            if(spi_vif.SS[cfg.slave_id])
+               @(posedge spi_vif.SCLK or spi_vif.SS ==4'b1111);
+            if(spi_vif.SS ==4'b1111)
                break;
             data[cfg.word-1] = spi_vif.MISO;
 
-            for(bit_idx = 1; bit_idx < cfg.word && !spi_vif.SS[cfg.slave_id]; bit_idx++) begin
+            for(bit_idx = 1; bit_idx < cfg.word && spi_vif.SS !=4'b1111; bit_idx++) begin
                if(cfg.cpha ^ cfg.cpol)
-                  @(negedge spi_vif.SCLK or posedge spi_vif.SS[cfg.slave_id]);
+                  @(negedge spi_vif.SCLK or spi_vif.SS ==4'b1111);
                else
-                  @(posedge spi_vif.SCLK or posedge spi_vif.SS[cfg.slave_id]);
-               if(spi_vif.SS[cfg.slave_id])
+                  @(posedge spi_vif.SCLK or spi_vif.SS ==4'b1111);
+               if(spi_vif.SS ==4'b1111)
                   break;
                data[cfg.word-1-bit_idx] = spi_vif.MISO;
             end
@@ -113,28 +123,66 @@ class spi_monitor extends uvm_monitor;
             if(!cfg.cdte )
                break;
          end
-         @(posedge spi_vif.SS[cfg.slave_id]);
+         @(spi_vif.SS ==4'b1111);
       end
    endtask
    
-   task check_freq();
-      time t0;
-      time t1;
+	task automatic check_freq();
+		time t_first;
+		time t_last;
+		int  edge_cnt;
+		int  sample_edges;
 
-      if(cfg.mode != spi_configuration::MASTER)
-         disable check_freq;
+		forever begin
+		   wait(spi_vif.SS != 4'b1111);
 
-      forever begin
-         @(posedge spi_vif.SCLK);
-         t0 = $time;
-         @(posedge spi_vif.SCLK);
-         t1 = $time;
-         if(half_bit > 0) begin
-            if((t1 - t0) != half_bit*2)
-            `uvm_info(get_type_name(), $sformatf("Actual period is: %0dns, Expected period is: %0dns", t1-t0, half_bit*2), UVM_LOW)
-         end
-      end
-   endtask
+		   t_first      = 0;
+		   t_last       = 0;
+		   edge_cnt     = 0;
+		   sample_edges = cfg.word;
+
+		   while (edge_cnt < sample_edges) begin
+		      if (cfg.cpha ^ cfg.cpol)
+		         @(negedge spi_vif.SCLK or spi_vif.SS ==4'b1111);
+		      else
+		         @(posedge spi_vif.SCLK or spi_vif.SS ==4'b1111);
+
+		      if (spi_vif.SS ==4'b1111)
+		         break;
+
+		      if (edge_cnt == 0)
+		         t_first = $time;
+
+		      t_last = $time;
+		      edge_cnt++;
+		   end
+		   if (edge_cnt >= 2 && t_last > t_first) begin
+		      longint freq_hz = ((edge_cnt - 1) * 1000000000) / (t_last - t_first);
+		      spi_observe_port_sclk_freq.write(freq_hz);
+		   end
+		end
+	endtask
+	
+	task automatic count_edge();
+		int  edge_cnt;
+		int  sample_edges;
+
+		forever begin
+		   wait(spi_vif.SS != 4'b1111);
+		   edge_cnt     = 0;
+		   sample_edges = cfg.word *2;
+
+		   while (edge_cnt < sample_edges) begin
+		      @(posedge spi_vif.SCLK or negedge spi_vif.SCLK or spi_vif.SS ==4'b1111);
+		      if (spi_vif.SS ==4'b1111)
+		         break;
+		      edge_cnt++;
+		   end
+		   if(edge_cnt == sample_edges)
+				-> frame_done;
+		end
+	endtask
+
    
    task capture_ss();
       bit [3:0] ss_val = 4'b1111;
@@ -151,5 +199,9 @@ class spi_monitor extends uvm_monitor;
          	end
       end
    endtask
+   
+   function void dis_cnt_edge();
+   		cnt_en = 0;
+   	endfunction
 
 endclass

@@ -17,7 +17,7 @@ class spi_driver extends uvm_driver #(spi_transaction);
       if(!uvm_config_db#(spi_configuration)::get(this, "", "cfg", cfg))
          `uvm_fatal(get_type_name(), $sformatf("Failed to get spi_configuration from uvm_config_db"))
          
-      half_bit = 1e9/(2*cfg.freq);
+      half_bit = 1_000_000_000/(2*cfg.freq);
    endfunction : build_phase
 
    virtual task run_phase(uvm_phase phase);
@@ -98,38 +98,47 @@ class spi_driver extends uvm_driver #(spi_transaction);
       endcase  
    endtask
 
-   task drive_cpha0_cpol0(input spi_transaction req, ref logic port);
-      port = req.data[cfg.word-1];
-      for(int i = 1; i < cfg.word && spi_vif.SS != 4'b1111; i++) begin
-         @(negedge spi_vif.SCLK or posedge spi_vif.SS[cfg.slave_id]);
-         port = req.data[cfg.word-1-i];
-      end
-      #(half_bit*2*1ns);
-   endtask
+	task drive_cpha0_cpol0(input spi_transaction req, ref logic port);
+		int i;
+		port = req.data[cfg.word-1];
+		for (i = 1; i < cfg.word && spi_vif.SS != 4'b1111; i++) begin
+		   @(negedge spi_vif.SCLK or spi_vif.SS == 4'b1111);
+		   if (spi_vif.SS == 4'b1111) break;
+		   port = req.data[cfg.word-1-i];
+		end
+	endtask
 
-   task drive_cpha0_cpol1(input spi_transaction req, ref logic port);
-      port = req.data[cfg.word-1];
-         for(int i = 1; i < cfg.word && spi_vif.SS != 4'b1111; i++) begin
-         @(posedge spi_vif.SCLK or posedge spi_vif.SS[cfg.slave_id]);
-         port = req.data[cfg.word-1-i];
-      end
-      #(half_bit*2*1ns);
-   endtask
 
-   task drive_cpha1_cpol0(input spi_transaction req, ref logic port);
-      for(int i = 0; i < cfg.word && spi_vif.SS != 4'b1111; i++) begin
-         @(posedge spi_vif.SCLK or posedge spi_vif.SS[cfg.slave_id]);
-         port = req.data[cfg.word-1-i];
-      end
-      #(half_bit*1ns);
-   endtask
+	task drive_cpha0_cpol1(input spi_transaction req, ref logic port);
+		int i;
+		port = req.data[cfg.word-1];
+		for (i = 1; i < cfg.word && spi_vif.SS != 4'b1111; i++) begin
+		   @(posedge spi_vif.SCLK or spi_vif.SS == 4'b1111);
+		   if (spi_vif.SS == 4'b1111) break;
+		   port = req.data[cfg.word-1-i];
+		end
+	endtask
 
-   task drive_cpha1_cpol1(input spi_transaction req, ref logic port);
-      for(int i = 0; i < cfg.word && spi_vif.SS != 4'b1111; i++) begin
-         @(negedge spi_vif.SCLK or posedge spi_vif.SS[cfg.slave_id]);
-         port = req.data[cfg.word-1-i];
-      end
-      #(half_bit*1ns);
-   endtask
+
+	task drive_cpha1_cpol0(input spi_transaction req, ref logic port);
+		int i;
+		for (i = 0; i < cfg.word && spi_vif.SS != 4'b1111; i++) begin
+		   @(posedge spi_vif.SCLK or spi_vif.SS == 4'b1111);
+		   if (spi_vif.SS == 4'b1111) break;
+		   port = req.data[cfg.word-1-i];
+		end
+	endtask
+
+
+	task drive_cpha1_cpol1(input spi_transaction req, ref logic port);
+		int i;
+		for (i = 0; i < cfg.word && spi_vif.SS != 4'b1111; i++) begin
+		   @(negedge spi_vif.SCLK or spi_vif.SS == 4'b1111);
+		   if (spi_vif.SS == 4'b1111) break;
+		   port = req.data[cfg.word-1-i];
+		end
+
+	endtask
+
 
 endclass

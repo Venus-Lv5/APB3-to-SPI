@@ -208,7 +208,7 @@ module apb_spi_top(
     // INTERRUPT
     // ======================================================================
     interrupt u_interrupt (
-        .int          (o_int),
+        .o_int        (o_int),
         .tx_empty     (w_tx_empty),
         .tx_full      (w_tx_full),
         .rx_empty     (w_rx_empty),

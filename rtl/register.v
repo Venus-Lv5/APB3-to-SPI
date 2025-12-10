@@ -129,10 +129,10 @@ module register(
             r_IER <= r_IER;
      end
      
-     assign o_en_tx_fifo_empty = r_IER[0];
-     assign o_en_tx_fifo_full = r_IER[1]; 
-     assign o_en_rx_fifo_empty = r_IER[2];
-     assign o_en_rx_fifo_full = r_IER[3];
+     assign o_en_tx_empty = r_IER[0];
+     assign o_en_tx_full = r_IER[1]; 
+     assign o_en_rx_empty = r_IER[2];
+     assign o_en_rx_full = r_IER[3];
      
      //FSR  
      always@(posedge i_clk, negedge i_rst_n) begin
@@ -170,7 +170,7 @@ module register(
      			6'b00_0001: o_rdata = r_LCR;												//LCR
      			6'b00_0010: o_rdata = r_DLR;												//DLR
      			6'b00_0100: o_rdata = r_IER;												//IER
-     			6'b00_1000: o_rdata = {28'h0, i_rx_empty, i_rx_full, i_tx_empty, i_tx_full};//FSR
+     			6'b00_1000: o_rdata = {28'h0, i_rx_full, i_rx_empty, i_tx_full, i_tx_empty};//FSR
      			6'b01_0000: o_rdata = 32'h0000_0000;										//TBR
      			6'b10_0000: o_rdata = {16'h0000, i_rx_data};											//RBR
      			default:	o_rdata = 32'hFFFF_FFFF;										//rsvd

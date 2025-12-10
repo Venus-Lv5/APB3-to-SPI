@@ -208,7 +208,7 @@ module spi_master(
 
         case (r_state)
             ST_IDLE: begin
-                if (!i_tx_empty && !i_rx_full) begin
+                if (!i_tx_empty) begin
                     r_next_state = ST_LOAD;
                 end
             end
@@ -231,7 +231,7 @@ module spi_master(
                     if (!i_cdte) begin
                         r_next_state = ST_DONE;
                     end else begin
-                        if (!i_tx_empty && !i_rx_full)
+                        if (!i_tx_empty)
                             r_next_state = ST_LOAD; 
                         else
                             r_next_state = ST_IDLE;
@@ -241,10 +241,7 @@ module spi_master(
 
             ST_DONE: begin
                 if (r_gap_cnt == 3) begin
-                    if (!i_tx_empty && !i_rx_full)
-                        r_next_state = ST_LOAD;  
-                    else
-                        r_next_state = ST_IDLE; 
+                     r_next_state = ST_IDLE; 
                 end
             end
 

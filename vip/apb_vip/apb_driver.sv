@@ -20,18 +20,6 @@ class apb_driver extends uvm_driver #(apb_transaction);
 
    virtual task run_phase(uvm_phase phase);
       apb_transaction seq, rsp;
-      
-      fork
-      		begin
-      			`uvm_info("run_phase", $sformatf("Run with APB PCLK = %0d MHz", apb_freq.freq), UVM_LOW)
-      			apb_vif.PCLK = 0;
-      			forever begin
-      				#(apb_freq.period/2);
-      				apb_vif.PCLK = ~apb_vif.PCLK;
-      			end
-      		end
-      join_none
-
       forever begin
          seq_item_port.get_next_item(seq);
                   	

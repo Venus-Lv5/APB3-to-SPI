@@ -29,8 +29,9 @@ class spi_base_test extends uvm_test;
       cfg.slave_id  = c.slave_id;
       cfg.freq       = c.freq;
 
-      cfg.div_val    = (apb_freq.freq * 1e6) / (2*cfg.freq);
+      cfg.div_val    = (apb_freq.freq * 1_000_000) / (2*cfg.freq);
       cfg.div_val 		= cfg.div_val - 1;
+      cfg.freq			= (apb_freq.freq * 1_000_000) / (2*(cfg.div_val+1));
       `uvm_info(get_type_name(), $sformatf("Completed config spi: \n%s", cfg.sprint()), UVM_LOW)
    endfunction
    
@@ -82,6 +83,7 @@ class spi_base_test extends uvm_test;
       uvm_config_db#(virtual spi_if)::set(this, "env", "spi_vif", spi_vif);
       uvm_config_db#(spi_configuration)::set(this, "env", "cfg", cfg);
 		uvm_config_db#(apb_configuration)::set(this, "env", "apb_freq", apb_freq);
+		uvm_config_db#(apb_configuration)::set(null, "*", "apb_freq", apb_freq);
 
       uvm_top.set_timeout(usr_timeout);
       `uvm_info("build_phase", "Exitting....", UVM_HIGH)

@@ -19,10 +19,10 @@ class spi_FSR_reg extends uvm_reg;
       tx_empty_status   = uvm_reg_field::type_id::create("tx_empty_status");
 
       rsvd.configure             	(this, 28, 4, "RO", 1'b1, 28'b0, 1, 1, 1);
-      rx_empty_status.configure  	(this, 1, 3, "RO", 1'b1, 1'b1, 1, 1, 1);
-      rx_full_status.configure  	(this, 1, 2, "RO", 1'b1, 1'b0, 1, 1, 1);
-      tx_empty_status.configure  	(this, 1, 1, "RO", 1'b1, 1'b1, 1, 1, 1);
-      tx_full_status.configure  	(this, 1, 0, "RO", 1'b1, 1'b0, 1, 1, 1);
+      rx_full_status.configure  	(this, 1, 3, "RO", 1'b1, 1'b1, 1, 1, 1);
+      rx_empty_status.configure  	(this, 1, 2, "RO", 1'b1, 1'b0, 1, 1, 1);
+      tx_full_status.configure  	(this, 1, 1, "RO", 1'b1, 1'b1, 1, 1, 1);
+      tx_empty_status.configure  	(this, 1, 0, "RO", 1'b1, 1'b0, 1, 1, 1);
    endfunction
 endclass
 

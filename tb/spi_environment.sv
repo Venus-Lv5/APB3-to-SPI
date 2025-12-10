@@ -48,6 +48,7 @@ class spi_environment extends uvm_env;
       uvm_config_db#(spi_configuration)::set(this, "spi_agt", "cfg", cfg);
       uvm_config_db#(spi_configuration)::set(this, "scoreboard", "cfg", cfg);
       uvm_config_db#(apb_configuration)::set(this, "apb_agt", "apb_freq", apb_freq);
+      uvm_config_db#(apb_configuration)::set(this, "scoreboard", "apb_freq", apb_freq);
 
       `uvm_info("build_phase", "Exiting....", UVM_HIGH)
    endfunction : build_phase
@@ -66,6 +67,7 @@ class spi_environment extends uvm_env;
       spi_agt.monitor.spi_observe_port_miso.connect(scoreboard.miso_export);
       apb_agt.monitor.apb_observe_port.connect(scoreboard.apb_export);
       spi_agt.monitor.spi_observe_port_ss.connect(scoreboard.ss_export);
+      spi_agt.monitor.spi_observe_port_sclk_freq.connect(scoreboard.sclk_freq_export);
 
       `uvm_info("connect_phase", "Exitting....", UVM_HIGH)
    endfunction : connect_phase

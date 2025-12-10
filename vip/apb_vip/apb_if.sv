@@ -11,5 +11,7 @@ interface apb_if;
    logic[`APB_DATA_WIDTH-1:0]    PRDATA;
    logic                         PREADY;
    logic                         PSLVERR;
+   
+   logic									interrupt;
 
 endinterface

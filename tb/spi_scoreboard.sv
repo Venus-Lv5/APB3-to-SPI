@@ -2,15 +2,17 @@
 `uvm_analysis_imp_decl(_miso)
 `uvm_analysis_imp_decl(_apb)
 `uvm_analysis_imp_decl(_ss)
+`uvm_analysis_imp_decl(_sclk_freq)
 
 class spi_scoreboard extends uvm_scoreboard;
    `uvm_component_utils(spi_scoreboard);
-
+   `include "spi_coverage.sv"
 
    uvm_analysis_imp_apb       #(apb_transaction, spi_scoreboard)  apb_export;
    uvm_analysis_imp_mosi      #(spi_transaction, spi_scoreboard)  mosi_export;
    uvm_analysis_imp_miso      #(spi_transaction, spi_scoreboard)  miso_export;
    uvm_analysis_imp_ss        #(bit [3:0],       spi_scoreboard)  ss_export;
+   uvm_analysis_imp_sclk_freq #(int,         		spi_scoreboard)  sclk_freq_export;
 
    spi_transaction spi_mosi_queue[$];
    spi_transaction spi_miso_queue[$];
@@ -22,6 +24,7 @@ class spi_scoreboard extends uvm_scoreboard;
    apb_transaction apb_rsvd_queue[$];
 
    bit [3:0] ss_queue[$];
+   int 		 sclk_freq_queue[$];
 
    apb_transaction apb_tx_trans;
    apb_transaction apb_rx_trans;
@@ -33,17 +36,22 @@ class spi_scoreboard extends uvm_scoreboard;
    spi_transaction spi_miso_trans;
 
    bit [3:0] ss;
+   int 		 sclk_freq;
+   
    spi_configuration cfg;
+   apb_configuration apb_freq;
    uvm_status_e status;
 
    bit[31:0] tbr_data      		= 31'b0;
-   bit       check_wr_tx_full 	= 0;
 
    int tx_count;
    int ss_count;
+   
 
    function new(string name = "spi_scoreboard", uvm_component parent);
       super.new(name, parent);
+      	coverage_cfg = new();
+		SPI_COVERGROUP = new();
    endfunction
 
    virtual function void build_phase(uvm_phase phase);
@@ -51,15 +59,18 @@ class spi_scoreboard extends uvm_scoreboard;
 
       if(!uvm_config_db#(spi_configuration)::get(this, "", "cfg", cfg))
          `uvm_fatal(get_type_name(), "Failed to get cfg from uvm_config_db")
+      if(!uvm_config_db#(apb_configuration)::get(this, "", "apb_freq", apb_freq))
+         `uvm_fatal(get_type_name(), "Failed to get apb_configuration from uvm_config_db")
 
       mosi_export       = new("mosi_export", this);
       miso_export       = new("miso_export", this);
       apb_export        = new("apb_export", this);
       ss_export         = new("ss_export", this);
-
+      sclk_freq_export  = new("sclk_freq_export", this);
+      
+      sample_spi_fc(cfg, apb_freq);
       tx_count = 0;
       ss_count = 0;
-
    endfunction : build_phase
 
    virtual task run_phase(uvm_phase phase);
@@ -78,6 +89,11 @@ class spi_scoreboard extends uvm_scoreboard;
    virtual function void write_ss (bit [3:0] trans);
       `uvm_info("run_phase", $sformatf("Get slaver id from SS: %b", trans), UVM_LOW)
       ss_queue.push_back(trans);
+   endfunction 
+   
+   virtual function void write_sclk_freq (int trans);
+      `uvm_info("run_phase", $sformatf("Get freq of SCLK: %0d", trans), UVM_LOW)
+      sclk_freq_queue.push_back(trans);
    endfunction 
 
    virtual function void write_apb (apb_transaction trans);
@@ -138,27 +154,6 @@ class spi_scoreboard extends uvm_scoreboard;
          end
       endfunction
 
-   function void check_wr_when_tx_full();
-      while(apb_tx_queue.size()>0 && spi_mosi_queue.size()>0) begin
-         apb_tx_trans = apb_tx_queue.pop_front();
-         spi_mosi_trans = spi_mosi_queue.pop_front();
-
-         `uvm_info(get_type_name(), "Entered check wr when tx full", UVM_LOW)
-         if (apb_tx_trans.data != spi_mosi_trans.data)
-            `uvm_error(get_type_name(), "Data transfer from dut to uart mismatch")
-         if (spi_mosi_trans.data == 32'h0000_00FF) begin
-            `uvm_error(get_type_name(), "Data is not dropped when tx fifo full")
-            break;
-         end
-         `uvm_info(get_type_name(), "Exiting check wr when tx full", UVM_LOW)
-      end
-   endfunction
-
-
-   function void check_wr_when_tx_full_en();
-      check_wr_tx_full = 1;
-   endfunction
-
    function void check_ss();
       bit [1:0] slaver_id = 2'b0;
       
@@ -175,7 +170,9 @@ class spi_scoreboard extends uvm_scoreboard;
          endcase
 
          if (slaver_id != apb_lcr_trans.data[5:4])
-            `uvm_error(get_type_name(), $sformatf("Slaver select mismatch"))
+            `uvm_error(get_type_name(), $sformatf("Slaver select mismatch with LCR"))
+         if (slaver_id != cfg.slave_id)
+            `uvm_error(get_type_name(), $sformatf("Slaver select mismatch with spi_configuration"))
          `uvm_info(get_type_name(), "Cleck slaver select DONE", UVM_LOW)
       end
 		
@@ -188,20 +185,32 @@ class spi_scoreboard extends uvm_scoreboard;
          	if (tx_count != ss_count)
          		`uvm_error(get_type_name(), $sformatf("The DUT released SS mismatch during non continuous mode"))
    endfunction
-
+   
+   function void check_sclk_freq();
+   		int setup_freq;
+   		while(sclk_freq_queue.size()>0) begin
+   			sclk_freq = sclk_freq_queue.pop_front();
+   			setup_freq = (apb_freq.freq*1_000_000)/(2*(cfg.div_val+1));
+   			if (sclk_freq != setup_freq)
+   				`uvm_error(get_type_name(), $sformatf("SCLK freq mismach: SCLK = %0dHz, setup SCLK = %0dHz", sclk_freq, setup_freq))
+   		end
+   		`uvm_info(get_type_name(), $sformatf("Exiting sclk check"), UVM_LOW)
+   		`uvm_info(get_type_name(), $sformatf("=============================================="), UVM_LOW)
+   		`uvm_info(get_type_name(), $sformatf("=                SCLK = %0dHz            =", sclk_freq), UVM_LOW)
+   		`uvm_info(get_type_name(), $sformatf("=============================================="), UVM_LOW)
+   	endfunction
+	
 
    function void compare();
+		ss_count = 0;
       while (apb_lcr_queue.size()>0)
-      apb_lcr_trans = apb_lcr_queue.pop_front();
-      	if (check_wr_tx_full)
-         	check_wr_when_tx_full();
-      	else begin
-         	fork
-            	check_TX_data();
-            	check_RX_data();
-            	check_ss();
-         	join
-      	end
+      		apb_lcr_trans = apb_lcr_queue.pop_front();
+      fork
+         	check_TX_data();
+         	check_RX_data();
+         	check_ss();
+         	check_sclk_freq();
+      	join
    endfunction
 
    function void check_rsvd();
@@ -213,6 +222,11 @@ class spi_scoreboard extends uvm_scoreboard;
             `uvm_error(get_type_name(), "Rsvd not give response")
       end
    endfunction
-
+   
+	function void sample_spi_fc(spi_configuration cfg, apb_configuration apb_freq);
+		$cast(coverage_cfg, cfg);
+      $cast(coverage_apb_freq, apb_freq);
+		SPI_COVERGROUP.sample();
+	endfunction
 
 endclass

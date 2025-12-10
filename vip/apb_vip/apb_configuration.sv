@@ -12,6 +12,8 @@ class apb_configuration extends uvm_object;
 
    function new(string name = "apb_configuration");
       super.new(name);
+      freq 		= 100;
+      period		= 10ns;
    endfunction
 
    
