@@ -61,7 +61,10 @@ class interrupt_tx_empty_dis_test extends spi_base_test;
 					2'b11 : `uvm_error(get_type_name(), "Interrupt rise, FSR record incorrect status")
 				endcase	
 	
-				wait(env.spi_agt.monitor.frame_done);
+				repeat (2) begin
+					wait(env.spi_agt.monitor.frame_done);
+					#1;
+				end
 
 				`uvm_info(get_type_name(), "Check second time", UVM_LOW)
 				regmodel.FSR.read(status, data);

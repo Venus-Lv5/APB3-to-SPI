@@ -51,7 +51,7 @@ class interrupt_rx_full_en_test extends spi_base_test;
          begin
          		repeat(15) begin
          			wait(env.spi_agt.monitor.frame_done);
-         			$display("=============================================================================================================== %0t", $time);
+         			#1;
          		end
       			regmodel.FSR.read(status, data);
       			case ({data[3], apb_vif.interrupt})

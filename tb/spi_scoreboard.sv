@@ -20,6 +20,7 @@ class spi_scoreboard extends uvm_scoreboard;
    apb_transaction apb_tx_queue[$];
    apb_transaction apb_rx_queue[$];
    apb_transaction apb_lcr_queue[$];
+   apb_transaction apb_dlr_queue[$];
    apb_transaction apb_fsr_queue[$];
    apb_transaction apb_rsvd_queue[$];
 
@@ -29,6 +30,7 @@ class spi_scoreboard extends uvm_scoreboard;
    apb_transaction apb_tx_trans;
    apb_transaction apb_rx_trans;
    apb_transaction apb_lcr_trans;
+   apb_transaction apb_dlr_trans;
    apb_transaction apb_fsr_trans;
    apb_transaction apb_rsvd_trans;
 
@@ -100,6 +102,7 @@ class spi_scoreboard extends uvm_scoreboard;
       if(trans.xact_type == apb_transaction::WRITE) begin
          case (trans.addr)
             32'h4000_2000: apb_lcr_queue.push_back(trans);
+            32'h4000_2004: apb_dlr_queue.push_back(trans);
             32'h4000_2010: begin
                apb_tx_queue.push_back(trans);
                tx_count = tx_count +1;

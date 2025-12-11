@@ -3,7 +3,7 @@ class dynamic_config_test extends spi_base_test;
    
    spi_configuration cfg_save;
 
-   function new(string name="spi_en_8bit_cpol0_cpha0_slave0_test", uvm_component parent);
+   function new(string name="dynamic_config_test", uvm_component parent);
       super.new(name, parent);
    endfunction
 

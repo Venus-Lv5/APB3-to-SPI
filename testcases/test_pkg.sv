@@ -99,5 +99,8 @@ package test_pkg;
 	`include "mismatch_cpol_test.sv"
 	`include "mismatch_cpha_test.sv"
 	`include "mismatch_slave_test.sv"
+	
+	`include "spi_busy_cfg_LCR_test.sv"
+	`include "spi_busy_cfg_DLR_test.sv"
 endpackage
 `endif
