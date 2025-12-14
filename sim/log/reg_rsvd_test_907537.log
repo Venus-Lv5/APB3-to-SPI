@@ -1,0 +1,1026 @@
+# vsim -sv_seed 907537 -coverage -coveranalysis -voptargs="+acc" -assertdebug -c testbench -do "coverage save -codeAll -cvg -onexit reg_rsvd_test_907537.ucdb; log -r /*;run -all;" -l reg_rsvd_test_907537.log "+UVM_TESTNAME=reg_rsvd_test" "+UVM_VERBOSITY=UVM_HIGH" 
+# Start time: 18:58:59 on Dec 11,2025
+# Loading /tmp/venus@nus-fedora_dpi_56928/linux_x86_64_gcc-15/export_tramp.so
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.2_1 linux_x86_64 May 15 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# ** Note: (vsim-8785) UVM-aware debugging capabilities will be disabled since no compiled "questa_uvm_pkg" can be found.
+# This also means that later if you turn on UVM-aware debugging your debug simulations may have
+# different random seeds from your non-debug simulations.
+# Loading sv_std.std
+# Loading work.apb_if(fast)
+# Loading work.spi_if(fast)
+# Loading work.uvm_pkg(fast)
+# Loading work.apb_pkg(fast)
+# Loading work.spi_pkg(fast)
+# Loading work.seq_pkg(fast)
+# Loading work.spi_register_pkg(fast)
+# Loading work.spi_regmodel_pkg(fast)
+# Loading work.env_pkg(fast)
+# Loading work.test_pkg(fast)
+# Loading work.testbench(fast)
+# Loading work.apb_if(fast__2)
+# Loading work.spi_if(fast__2)
+# Loading work.apb_spi_top(fast)
+# Loading work.apb_bus(fast)
+# Loading work.register(fast)
+# Loading work.fifo(fast)
+# Loading work.spi_master(fast)
+# Loading work.interrupt(fast)
+# ** Warning: (vsim-3764) Stand-alone call to function 'get' treated as implicit void cast.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench File: ./../tb/testbench.sv Line: 54
+# Compiling /tmp/venus@nus-fedora_dpi_56928/linux_x86_64_gcc-15/exportwrapper.c
+# Loading /tmp/venus@nus-fedora_dpi_56928/linux_x86_64_gcc-15/vsim_auto_compile.so
+# coverage save -codeAll -cvg -onexit reg_rsvd_test_907537.ucdb
+#  log -r /*
+# run -all
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
+# ----------------------------------------------------------------
+# UVM-1.2
+# (C) 2007-2014 Mentor Graphics Corporation
+# (C) 2007-2014 Cadence Design Systems, Inc.
+# (C) 2006-2014 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# (C) 2013-2014 NVIDIA Corporation
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/base/uvm_root.svh(453) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
+# UVM_INFO @ 0: reporter [RNTST] Running test reg_rsvd_test...
+# UVM_INFO ./../testcases/spi_base_test.sv(69) @ 0: uvm_test_top [build_phase] Entered....
+# UVM_INFO ./../testcases/spi_base_test.sv(89) @ 0: uvm_test_top [build_phase] Exitting....
+# UVM_INFO ./../testcases/spi_base_test.sv(41) @ 0: uvm_test_top [reg_rsvd_test] Completed config apb freq: 
+# ----------------------------------------
+# Name      Type               Size  Value
+# ----------------------------------------
+# apb_freq  apb_configuration  -     @387 
+#   freq    integral           32    'd100
+#   period  integral           64    'd10 
+# ----------------------------------------
+# 
+# UVM_INFO ./../tb/spi_environment.sv(24) @ 0: uvm_test_top.env [build_phase] Entered.....
+# UVM_INFO ./../tb/spi_environment.sv(53) @ 0: uvm_test_top.env [build_phase] Exiting....
+# UVM_INFO ./../vip/apb_vip/apb_agent.sv(23) @ 0: uvm_test_top.env.apb_agt [apb_agent] Active APB agent is configured
+# UVM_INFO ./../vip/spi_vip/spi_agent.sv(27) @ 0: uvm_test_top.env.spi_agt [spi_agent] Active agent is configured
+# UVM_INFO ./../tb/spi_environment.sv(58) @ 0: uvm_test_top.env [connect_phase] Entered.....
+# UVM_INFO ./../tb/spi_environment.sv(72) @ 0: uvm_test_top.env [connect_phase] Exitting....
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/base/uvm_root.svh(579) @ 0: reporter [UVMTOP] UVM testbench topology:
+# -------------------------------------------------------------------------------------
+# Name                                Type                                  Size  Value
+# -------------------------------------------------------------------------------------
+# uvm_test_top                        reg_rsvd_test                         -     @351 
+#   env                               spi_environment                       -     @376 
+#     apb_agt                         apb_agent                             -     @412 
+#       driver                        apb_driver                            -     @526 
+#         rsp_port                    uvm_analysis_port                     -     @545 
+#         seq_item_port               uvm_seq_item_pull_port                -     @535 
+#       monitor                       apb_monitor                           -     @555 
+#         apb_observe_port            uvm_analysis_port                     -     @708 
+#       sequencer                     apb_sequencer                         -     @564 
+#         rsp_export                  uvm_analysis_export                   -     @573 
+#         seq_item_export             uvm_seq_item_pull_imp                 -     @691 
+#         arbitration_queue           array                                 0     -    
+#         lock_queue                  array                                 0     -    
+#         num_last_reqs               integral                              32    'd1  
+#         num_last_rsps               integral                              32    'd1  
+#     apb_predictor                   uvm_reg_predictor #(apb_transaction)  -     @479 
+#       bus_in                        uvm_analysis_imp                      -     @488 
+#       reg_ap                        uvm_analysis_port                     -     @498 
+#     scoreboard                      spi_scoreboard                        -     @430 
+#       apb_export                    uvm_analysis_imp_apb                  -     @746 
+#       miso_export                   uvm_analysis_imp_miso                 -     @736 
+#       mosi_export                   uvm_analysis_imp_mosi                 -     @726 
+#       sclk_freq_export              uvm_analysis_imp_sclk_freq            -     @766 
+#       ss_export                     uvm_analysis_imp_ss                   -     @756 
+#     spi_agt                         spi_agent                             -     @421 
+#       driver                        spi_driver                            -     @919 
+#         rsp_port                    uvm_analysis_port                     -     @938 
+#         seq_item_port               uvm_seq_item_pull_port                -     @928 
+#       monitor                       spi_monitor                           -     @948 
+#         spi_observe_port_miso       uvm_analysis_port                     -     @967 
+#         spi_observe_port_sclk_freq  uvm_analysis_port                     -     @987 
+#         spi_observe_port_ss         uvm_analysis_port                     -     @977 
+#         spi_obverse_port_mosi       uvm_analysis_port                     -     @957 
+#       sequencer                     spi_sequencer                         -     @782 
+#         rsp_export                  uvm_analysis_export                   -     @791 
+#         seq_item_export             uvm_seq_item_pull_imp                 -     @909 
+#         arbitration_queue           array                                 0     -    
+#         lock_queue                  array                                 0     -    
+#         num_last_reqs               integral                              32    'd1  
+#         num_last_rsps               integral                              32    'd1  
+# -------------------------------------------------------------------------------------
+# 
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/base/uvm_traversal.svh(279) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(21) @ 0: uvm_test_top.env.apb_agt.monitor [apb_monitor] Start capture APB interface
+# UVM_INFO ./../sequences/rsvd_sequence.sv(20) @ 0: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send req to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1055                                 
+#   xact_type                    xact_type_enum   1     WRITE                                 
+#   addr                         integral         32    'h40002cc7                            
+#   data                         integral         32    'h563ac01b                            
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    0                                     
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 105000: uvm_test_top.env.apb_agt.driver [run_phase] Start WRITE transaction - ADDR: 0x40002cc7
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 125000: uvm_test_top.env.apb_agt.driver [run_phase] Completed WRITE transaction - ADDR: 0x40002cc7 - DATA: 0x563ac01b
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 125000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 125000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1100     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h40002cc7
+#   data             integral         32    'h563ac01b
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 125000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002cc7, data = 0x563ac01b, kind = UVM_WRITE, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 125000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1100     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h40002cc7
+#   data             integral         32    'h563ac01b
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(34) @ 125000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send seq to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1119                                 
+#   xact_type                    xact_type_enum   1     READ                                  
+#   addr                         integral         32    'h40002cc7                            
+#   data                         integral         32    'h56e178a1                            
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    125000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 135000: uvm_test_top.env.apb_agt.driver [run_phase] Start  READ transaction - ADDR: 0x40002cc7
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 155000: uvm_test_top.env.apb_agt.driver [run_phase] Completed  READ transaction - ADDR: 0x40002cc7 - DATA: 0xffffffff
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 155000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 155000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1127     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002cc7
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 155000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002cc7, data = 0xffffffff, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 155000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1127     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002cc7
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(20) @ 155000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send req to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1153                                 
+#   xact_type                    xact_type_enum   1     WRITE                                 
+#   addr                         integral         32    'h40002890                            
+#   data                         integral         32    'h8e3b02d2                            
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    155000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 165000: uvm_test_top.env.apb_agt.driver [run_phase] Start WRITE transaction - ADDR: 0x40002890
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 185000: uvm_test_top.env.apb_agt.driver [run_phase] Completed WRITE transaction - ADDR: 0x40002890 - DATA: 0x8e3b02d2
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 185000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 185000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1161     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h40002890
+#   data             integral         32    'h8e3b02d2
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 185000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002890, data = 0x8e3b02d2, kind = UVM_WRITE, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 185000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1161     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h40002890
+#   data             integral         32    'h8e3b02d2
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(34) @ 185000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send seq to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1179                                 
+#   xact_type                    xact_type_enum   1     READ                                  
+#   addr                         integral         32    'h40002890                            
+#   data                         integral         32    'h6933a9d4                            
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    185000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 195000: uvm_test_top.env.apb_agt.driver [run_phase] Start  READ transaction - ADDR: 0x40002890
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 215000: uvm_test_top.env.apb_agt.driver [run_phase] Completed  READ transaction - ADDR: 0x40002890 - DATA: 0xffffffff
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 215000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 215000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1187     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002890
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 215000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002890, data = 0xffffffff, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 215000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1187     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002890
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(20) @ 215000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send req to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1213                                 
+#   xact_type                    xact_type_enum   1     WRITE                                 
+#   addr                         integral         32    'h40002d4c                            
+#   data                         integral         32    'hceedeb92                            
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    215000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 225000: uvm_test_top.env.apb_agt.driver [run_phase] Start WRITE transaction - ADDR: 0x40002d4c
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 245000: uvm_test_top.env.apb_agt.driver [run_phase] Completed WRITE transaction - ADDR: 0x40002d4c - DATA: 0xceedeb92
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 245000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 245000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1221     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h40002d4c
+#   data             integral         32    'hceedeb92
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 245000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002d4c, data = 0xceedeb92, kind = UVM_WRITE, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 245000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1221     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h40002d4c
+#   data             integral         32    'hceedeb92
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(34) @ 245000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send seq to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1239                                 
+#   xact_type                    xact_type_enum   1     READ                                  
+#   addr                         integral         32    'h40002d4c                            
+#   data                         integral         32    'hd642f73e                            
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    245000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 255000: uvm_test_top.env.apb_agt.driver [run_phase] Start  READ transaction - ADDR: 0x40002d4c
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 275000: uvm_test_top.env.apb_agt.driver [run_phase] Completed  READ transaction - ADDR: 0x40002d4c - DATA: 0xffffffff
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 275000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 275000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1247     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002d4c
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 275000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002d4c, data = 0xffffffff, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 275000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1247     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002d4c
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(20) @ 275000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send req to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1273                                 
+#   xact_type                    xact_type_enum   1     WRITE                                 
+#   addr                         integral         32    'h40002262                            
+#   data                         integral         32    'h835ca58d                            
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    275000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 285000: uvm_test_top.env.apb_agt.driver [run_phase] Start WRITE transaction - ADDR: 0x40002262
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 305000: uvm_test_top.env.apb_agt.driver [run_phase] Completed WRITE transaction - ADDR: 0x40002262 - DATA: 0x835ca58d
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 305000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 305000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1281     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h40002262
+#   data             integral         32    'h835ca58d
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 305000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002262, data = 0x835ca58d, kind = UVM_WRITE, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 305000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1281     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h40002262
+#   data             integral         32    'h835ca58d
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(34) @ 305000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send seq to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1299                                 
+#   xact_type                    xact_type_enum   1     READ                                  
+#   addr                         integral         32    'h40002262                            
+#   data                         integral         32    'hc313a1f0                            
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    305000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 315000: uvm_test_top.env.apb_agt.driver [run_phase] Start  READ transaction - ADDR: 0x40002262
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 335000: uvm_test_top.env.apb_agt.driver [run_phase] Completed  READ transaction - ADDR: 0x40002262 - DATA: 0xffffffff
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 335000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 335000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1307     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002262
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 335000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002262, data = 0xffffffff, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 335000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1307     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002262
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(20) @ 335000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send req to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1333                                 
+#   xact_type                    xact_type_enum   1     WRITE                                 
+#   addr                         integral         32    'h400021cb                            
+#   data                         integral         32    'h47d7f5be                            
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    335000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 345000: uvm_test_top.env.apb_agt.driver [run_phase] Start WRITE transaction - ADDR: 0x400021cb
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 365000: uvm_test_top.env.apb_agt.driver [run_phase] Completed WRITE transaction - ADDR: 0x400021cb - DATA: 0x47d7f5be
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 365000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 365000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1341     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h400021cb
+#   data             integral         32    'h47d7f5be
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 365000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x400021cb, data = 0x47d7f5be, kind = UVM_WRITE, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 365000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1341     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h400021cb
+#   data             integral         32    'h47d7f5be
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(34) @ 365000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send seq to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1359                                 
+#   xact_type                    xact_type_enum   1     READ                                  
+#   addr                         integral         32    'h400021cb                            
+#   data                         integral         32    'he9bffa8c                            
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    365000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 375000: uvm_test_top.env.apb_agt.driver [run_phase] Start  READ transaction - ADDR: 0x400021cb
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 395000: uvm_test_top.env.apb_agt.driver [run_phase] Completed  READ transaction - ADDR: 0x400021cb - DATA: 0xffffffff
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 395000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 395000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1367     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h400021cb
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 395000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x400021cb, data = 0xffffffff, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 395000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1367     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h400021cb
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(20) @ 395000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send req to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1393                                 
+#   xact_type                    xact_type_enum   1     WRITE                                 
+#   addr                         integral         32    'h40002da3                            
+#   data                         integral         32    'h5e8bf046                            
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    395000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 405000: uvm_test_top.env.apb_agt.driver [run_phase] Start WRITE transaction - ADDR: 0x40002da3
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 425000: uvm_test_top.env.apb_agt.driver [run_phase] Completed WRITE transaction - ADDR: 0x40002da3 - DATA: 0x5e8bf046
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 425000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 425000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1401     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h40002da3
+#   data             integral         32    'h5e8bf046
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 425000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002da3, data = 0x5e8bf046, kind = UVM_WRITE, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 425000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1401     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h40002da3
+#   data             integral         32    'h5e8bf046
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(34) @ 425000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send seq to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1419                                 
+#   xact_type                    xact_type_enum   1     READ                                  
+#   addr                         integral         32    'h40002da3                            
+#   data                         integral         32    'hfaf5e89f                            
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    425000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 435000: uvm_test_top.env.apb_agt.driver [run_phase] Start  READ transaction - ADDR: 0x40002da3
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 455000: uvm_test_top.env.apb_agt.driver [run_phase] Completed  READ transaction - ADDR: 0x40002da3 - DATA: 0xffffffff
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 455000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 455000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1427     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002da3
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 455000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002da3, data = 0xffffffff, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 455000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1427     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002da3
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(20) @ 455000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send req to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1453                                 
+#   xact_type                    xact_type_enum   1     WRITE                                 
+#   addr                         integral         32    'h400024e2                            
+#   data                         integral         32    'h5bf14b3                             
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    455000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 465000: uvm_test_top.env.apb_agt.driver [run_phase] Start WRITE transaction - ADDR: 0x400024e2
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 485000: uvm_test_top.env.apb_agt.driver [run_phase] Completed WRITE transaction - ADDR: 0x400024e2 - DATA: 0x5bf14b3
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 485000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 485000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1461     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h400024e2
+#   data             integral         32    'h5bf14b3 
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 485000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x400024e2, data = 0x5bf14b3, kind = UVM_WRITE, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 485000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1461     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h400024e2
+#   data             integral         32    'h5bf14b3 
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(34) @ 485000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send seq to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1479                                 
+#   xact_type                    xact_type_enum   1     READ                                  
+#   addr                         integral         32    'h400024e2                            
+#   data                         integral         32    'hbb2c7e8c                            
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    485000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 495000: uvm_test_top.env.apb_agt.driver [run_phase] Start  READ transaction - ADDR: 0x400024e2
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 515000: uvm_test_top.env.apb_agt.driver [run_phase] Completed  READ transaction - ADDR: 0x400024e2 - DATA: 0xffffffff
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 515000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 515000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1487     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h400024e2
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 515000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x400024e2, data = 0xffffffff, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 515000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1487     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h400024e2
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(20) @ 515000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send req to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1513                                 
+#   xact_type                    xact_type_enum   1     WRITE                                 
+#   addr                         integral         32    'h400023d5                            
+#   data                         integral         32    'hfb23b6a8                            
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    515000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 525000: uvm_test_top.env.apb_agt.driver [run_phase] Start WRITE transaction - ADDR: 0x400023d5
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 545000: uvm_test_top.env.apb_agt.driver [run_phase] Completed WRITE transaction - ADDR: 0x400023d5 - DATA: 0xfb23b6a8
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 545000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 545000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1521     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h400023d5
+#   data             integral         32    'hfb23b6a8
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 545000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x400023d5, data = 0xfb23b6a8, kind = UVM_WRITE, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 545000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1521     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h400023d5
+#   data             integral         32    'hfb23b6a8
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(34) @ 545000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send seq to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1539                                 
+#   xact_type                    xact_type_enum   1     READ                                  
+#   addr                         integral         32    'h400023d5                            
+#   data                         integral         32    'hda24d0de                            
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    545000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 555000: uvm_test_top.env.apb_agt.driver [run_phase] Start  READ transaction - ADDR: 0x400023d5
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 575000: uvm_test_top.env.apb_agt.driver [run_phase] Completed  READ transaction - ADDR: 0x400023d5 - DATA: 0xffffffff
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 575000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 575000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1547     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h400023d5
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 575000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x400023d5, data = 0xffffffff, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 575000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1547     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h400023d5
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(20) @ 575000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send req to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1573                                 
+#   xact_type                    xact_type_enum   1     WRITE                                 
+#   addr                         integral         32    'h400020cd                            
+#   data                         integral         32    'h7bdd090b                            
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    575000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 585000: uvm_test_top.env.apb_agt.driver [run_phase] Start WRITE transaction - ADDR: 0x400020cd
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 605000: uvm_test_top.env.apb_agt.driver [run_phase] Completed WRITE transaction - ADDR: 0x400020cd - DATA: 0x7bdd090b
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 605000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 605000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1581     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h400020cd
+#   data             integral         32    'h7bdd090b
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 605000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x400020cd, data = 0x7bdd090b, kind = UVM_WRITE, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 605000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1581     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h400020cd
+#   data             integral         32    'h7bdd090b
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(34) @ 605000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send seq to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1599                                 
+#   xact_type                    xact_type_enum   1     READ                                  
+#   addr                         integral         32    'h400020cd                            
+#   data                         integral         32    'h58361b2                             
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    605000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 615000: uvm_test_top.env.apb_agt.driver [run_phase] Start  READ transaction - ADDR: 0x400020cd
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 635000: uvm_test_top.env.apb_agt.driver [run_phase] Completed  READ transaction - ADDR: 0x400020cd - DATA: 0xffffffff
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 635000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 635000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1607     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h400020cd
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 635000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x400020cd, data = 0xffffffff, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 635000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1607     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h400020cd
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(20) @ 635000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send req to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1633                                 
+#   xact_type                    xact_type_enum   1     WRITE                                 
+#   addr                         integral         32    'h400022c5                            
+#   data                         integral         32    'h2f75abc3                            
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    635000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 645000: uvm_test_top.env.apb_agt.driver [run_phase] Start WRITE transaction - ADDR: 0x400022c5
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 665000: uvm_test_top.env.apb_agt.driver [run_phase] Completed WRITE transaction - ADDR: 0x400022c5 - DATA: 0x2f75abc3
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 665000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 665000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1641     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h400022c5
+#   data             integral         32    'h2f75abc3
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 665000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x400022c5, data = 0x2f75abc3, kind = UVM_WRITE, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 665000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1641     
+#   xact_type        xact_type_enum   1     WRITE     
+#   addr             integral         32    'h400022c5
+#   data             integral         32    'h2f75abc3
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../sequences/rsvd_sequence.sv(34) @ 665000: uvm_test_top.env.apb_agt.sequencer@@seq [rsvd_sequence] Send seq to driver: 
+# --------------------------------------------------------------------------------------------
+# Name                           Type             Size  Value                                 
+# --------------------------------------------------------------------------------------------
+# uvm_sequence_item              apb_transaction  -     @1659                                 
+#   xact_type                    xact_type_enum   1     READ                                  
+#   addr                         integral         32    'h400022c5                            
+#   data                         integral         32    'hee652597                            
+#   pslverr                      integral         1     'h0                                   
+#   begin_time                   time             64    665000                                
+#   depth                        int              32    'd2                                   
+#   parent sequence (name)       string           3     seq                                   
+#   parent sequence (full name)  string           38    uvm_test_top.env.apb_agt.sequencer.seq
+#   sequencer                    string           34    uvm_test_top.env.apb_agt.sequencer    
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 675000: uvm_test_top.env.apb_agt.driver [run_phase] Start  READ transaction - ADDR: 0x400022c5
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 695000: uvm_test_top.env.apb_agt.driver [run_phase] Completed  READ transaction - ADDR: 0x400022c5 - DATA: 0xffffffff
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 695000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 695000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1667     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h400022c5
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 695000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x400022c5, data = 0xffffffff, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 695000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1667     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h400022c5
+#   data             integral         32    'hffffffff
+#   pslverr          integral         1     'h1       
+# ----------------------------------------------------
+# 
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/base/uvm_objection.svh(1270) @ 695000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO ./../testcases/spi_base_test.sv(104) @ 695000: uvm_test_top [final_phase] Entered...
+# UVM_INFO ./../testcases/spi_base_test.sv(112) @ 695000: uvm_test_top [reg_rsvd_test] --------------------------------
+# UVM_INFO ./../testcases/spi_base_test.sv(113) @ 695000: uvm_test_top [reg_rsvd_test] ----	TEST PASSED	----
+# UVM_INFO ./../testcases/spi_base_test.sv(114) @ 695000: uvm_test_top [reg_rsvd_test] --------------------------------
+# UVM_INFO ./../testcases/spi_base_test.sv(117) @ 695000: uvm_test_top [final_phase] Exitting...
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/base/uvm_report_catcher.svh(705) @ 695000: reporter [UVM/REPORT/CATCHER] 
+# --- UVM Report catcher Summary ---
+# 
+# 
+# Number of demoted UVM_FATAL reports  :    0
+# Number of demoted UVM_ERROR reports  :    0
+# Number of demoted UVM_WARNING reports:    0
+# Number of caught UVM_FATAL reports   :    0
+# Number of caught UVM_ERROR reports   :    0
+# Number of caught UVM_WARNING reports :    0
+# 
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/base/uvm_report_server.svh(847) @ 695000: reporter [UVM/REPORT/SERVER] 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :  162
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [NO_DPI_TSTNAME]     1
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVM/COMP/NAMECHECK]     1
+# [UVM/RELNOTES]     1
+# [UVM/REPORT/CATCHER]     1
+# [UVMTOP]     1
+# [apb_agent]     1
+# [apb_monitor]    41
+# [build_phase]     4
+# [connect_phase]     2
+# [final_phase]     2
+# [reg_rsvd_test]     4
+# [rsvd_sequence]    20
+# [run_phase]    60
+# [spi_agent]     1
+# [spi_reg2apb_adapter]    20
+# 
+# ** Note: $finish    : /home/venus/QuestaSim/uvm-1.2/src/base/uvm_root.svh(517)
+#    Time: 695 ns  Iteration: 76  Instance: /testbench
+# Saving coverage database on exit...
+# End time: 18:59:02 on Dec 11,2025, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 1

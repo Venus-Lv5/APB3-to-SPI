@@ -1,0 +1,382 @@
+# vsim -sv_seed 876830 -coverage -coveranalysis -voptargs="+acc" -assertdebug -c testbench -do "coverage save -codeAll -cvg -onexit reg_default_test_876830.ucdb; log -r /*;run -all;" -l reg_default_test_876830.log "+UVM_TESTNAME=reg_default_test" "+UVM_VERBOSITY=UVM_HIGH" 
+# Start time: 18:58:47 on Dec 11,2025
+# Loading /tmp/venus@nus-fedora_dpi_56806/linux_x86_64_gcc-15/export_tramp.so
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-13408) Code coverage will be disabled for some DUs/packages/classes and source files.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spi_master(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# //  Questa Sim-64
+# //  Version 2021.2_1 linux_x86_64 May 15 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# ** Note: (vsim-8785) UVM-aware debugging capabilities will be disabled since no compiled "questa_uvm_pkg" can be found.
+# This also means that later if you turn on UVM-aware debugging your debug simulations may have
+# different random seeds from your non-debug simulations.
+# Loading sv_std.std
+# Loading work.apb_if(fast)
+# Loading work.spi_if(fast)
+# Loading work.uvm_pkg(fast)
+# Loading work.apb_pkg(fast)
+# Loading work.spi_pkg(fast)
+# Loading work.seq_pkg(fast)
+# Loading work.spi_register_pkg(fast)
+# Loading work.spi_regmodel_pkg(fast)
+# Loading work.env_pkg(fast)
+# Loading work.test_pkg(fast)
+# Loading work.testbench(fast)
+# Loading work.apb_if(fast__2)
+# Loading work.spi_if(fast__2)
+# Loading work.apb_spi_top(fast)
+# Loading work.apb_bus(fast)
+# Loading work.register(fast)
+# Loading work.fifo(fast)
+# Loading work.spi_master(fast)
+# Loading work.interrupt(fast)
+# ** Warning: (vsim-3764) Stand-alone call to function 'get' treated as implicit void cast.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench File: ./../tb/testbench.sv Line: 54
+# Compiling /tmp/venus@nus-fedora_dpi_56806/linux_x86_64_gcc-15/exportwrapper.c
+# Loading /tmp/venus@nus-fedora_dpi_56806/linux_x86_64_gcc-15/vsim_auto_compile.so
+# coverage save -codeAll -cvg -onexit reg_default_test_876830.ucdb
+#  log -r /*
+# run -all
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
+# ----------------------------------------------------------------
+# UVM-1.2
+# (C) 2007-2014 Mentor Graphics Corporation
+# (C) 2007-2014 Cadence Design Systems, Inc.
+# (C) 2006-2014 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# (C) 2013-2014 NVIDIA Corporation
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/base/uvm_root.svh(453) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
+# UVM_INFO @ 0: reporter [RNTST] Running test reg_default_test...
+# UVM_INFO ./../testcases/spi_base_test.sv(69) @ 0: uvm_test_top [build_phase] Entered....
+# UVM_INFO ./../testcases/spi_base_test.sv(89) @ 0: uvm_test_top [build_phase] Exitting....
+# UVM_INFO ./../testcases/spi_base_test.sv(41) @ 0: uvm_test_top [reg_default_test] Completed config apb freq: 
+# ----------------------------------------
+# Name      Type               Size  Value
+# ----------------------------------------
+# apb_freq  apb_configuration  -     @387 
+#   freq    integral           32    'd50 
+#   period  integral           64    'd20 
+# ----------------------------------------
+# 
+# UVM_INFO ./../tb/spi_environment.sv(24) @ 0: uvm_test_top.env [build_phase] Entered.....
+# UVM_INFO ./../tb/spi_environment.sv(53) @ 0: uvm_test_top.env [build_phase] Exiting....
+# UVM_INFO ./../vip/apb_vip/apb_agent.sv(23) @ 0: uvm_test_top.env.apb_agt [apb_agent] Active APB agent is configured
+# UVM_INFO ./../vip/spi_vip/spi_agent.sv(27) @ 0: uvm_test_top.env.spi_agt [spi_agent] Active agent is configured
+# UVM_INFO ./../tb/spi_environment.sv(58) @ 0: uvm_test_top.env [connect_phase] Entered.....
+# UVM_INFO ./../tb/spi_environment.sv(72) @ 0: uvm_test_top.env [connect_phase] Exitting....
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/base/uvm_root.svh(579) @ 0: reporter [UVMTOP] UVM testbench topology:
+# -------------------------------------------------------------------------------------
+# Name                                Type                                  Size  Value
+# -------------------------------------------------------------------------------------
+# uvm_test_top                        reg_default_test                      -     @351 
+#   env                               spi_environment                       -     @376 
+#     apb_agt                         apb_agent                             -     @412 
+#       driver                        apb_driver                            -     @526 
+#         rsp_port                    uvm_analysis_port                     -     @545 
+#         seq_item_port               uvm_seq_item_pull_port                -     @535 
+#       monitor                       apb_monitor                           -     @555 
+#         apb_observe_port            uvm_analysis_port                     -     @708 
+#       sequencer                     apb_sequencer                         -     @564 
+#         rsp_export                  uvm_analysis_export                   -     @573 
+#         seq_item_export             uvm_seq_item_pull_imp                 -     @691 
+#         arbitration_queue           array                                 0     -    
+#         lock_queue                  array                                 0     -    
+#         num_last_reqs               integral                              32    'd1  
+#         num_last_rsps               integral                              32    'd1  
+#     apb_predictor                   uvm_reg_predictor #(apb_transaction)  -     @479 
+#       bus_in                        uvm_analysis_imp                      -     @488 
+#       reg_ap                        uvm_analysis_port                     -     @498 
+#     scoreboard                      spi_scoreboard                        -     @430 
+#       apb_export                    uvm_analysis_imp_apb                  -     @746 
+#       miso_export                   uvm_analysis_imp_miso                 -     @736 
+#       mosi_export                   uvm_analysis_imp_mosi                 -     @726 
+#       sclk_freq_export              uvm_analysis_imp_sclk_freq            -     @766 
+#       ss_export                     uvm_analysis_imp_ss                   -     @756 
+#     spi_agt                         spi_agent                             -     @421 
+#       driver                        spi_driver                            -     @919 
+#         rsp_port                    uvm_analysis_port                     -     @938 
+#         seq_item_port               uvm_seq_item_pull_port                -     @928 
+#       monitor                       spi_monitor                           -     @948 
+#         spi_observe_port_miso       uvm_analysis_port                     -     @967 
+#         spi_observe_port_sclk_freq  uvm_analysis_port                     -     @987 
+#         spi_observe_port_ss         uvm_analysis_port                     -     @977 
+#         spi_obverse_port_mosi       uvm_analysis_port                     -     @957 
+#       sequencer                     spi_sequencer                         -     @782 
+#         rsp_export                  uvm_analysis_export                   -     @791 
+#         seq_item_export             uvm_seq_item_pull_imp                 -     @909 
+#         arbitration_queue           array                                 0     -    
+#         lock_queue                  array                                 0     -    
+#         num_last_reqs               integral                              32    'd1  
+#         num_last_rsps               integral                              32    'd1  
+# -------------------------------------------------------------------------------------
+# 
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/base/uvm_traversal.svh(279) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(21) @ 0: uvm_test_top.env.apb_agt.monitor [apb_monitor] Start capture APB interface
+# UVM_INFO @ 0: reporter@@reset_seq [STARTING_SEQ] 
+# 
+# Starting reset_seq sequence...
+# 
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(128) @ 0: reporter@@reset_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.RBR in map "regmodel.apb_map"...
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(27) @ 0: reporter [spi_reg2apb_adapter] reg2bus: address = 0x40002014, data = 0x0, kind = READ
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 110000: uvm_test_top.env.apb_agt.driver [run_phase] Start  READ transaction - ADDR: 0x40002014
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 150000: uvm_test_top.env.apb_agt.driver [run_phase] Completed  READ transaction - ADDR: 0x40002014 - DATA: 0x0
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 150000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 150000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1110     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002014
+#   data             integral         32    'h0       
+#   pslverr          integral         1     'h0       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 150000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002014, data = 0x0, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/reg/uvm_reg_predictor.svh(223) @ 150000: uvm_test_top.env.apb_predictor [REG_PREDICT] Observed READ transaction to register regmodel.RBR: value='h0
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 150000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1110     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002014
+#   data             integral         32    'h0       
+#   pslverr          integral         1     'h0       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 150000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002014, data = 0x0, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO @ 150000: reporter [RegModel] Read  register via map regmodel.apb_map: regmodel.RBR=0
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(128) @ 150000: reporter@@reset_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.TBR in map "regmodel.apb_map"...
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(27) @ 150000: reporter [spi_reg2apb_adapter] reg2bus: address = 0x40002010, data = 0x0, kind = READ
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 170000: uvm_test_top.env.apb_agt.driver [run_phase] Start  READ transaction - ADDR: 0x40002010
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 210000: uvm_test_top.env.apb_agt.driver [run_phase] Completed  READ transaction - ADDR: 0x40002010 - DATA: 0x0
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 210000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 210000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1155     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002010
+#   data             integral         32    'h0       
+#   pslverr          integral         1     'h0       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 210000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002010, data = 0x0, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/reg/uvm_reg_predictor.svh(223) @ 210000: uvm_test_top.env.apb_predictor [REG_PREDICT] Observed READ transaction to register regmodel.TBR: value='h0
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 210000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1155     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002010
+#   data             integral         32    'h0       
+#   pslverr          integral         1     'h0       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 210000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002010, data = 0x0, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO @ 210000: reporter [RegModel] Read  register via map regmodel.apb_map: regmodel.TBR=0
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(128) @ 210000: reporter@@reset_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.FSR in map "regmodel.apb_map"...
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(27) @ 210000: reporter [spi_reg2apb_adapter] reg2bus: address = 0x4000200c, data = 0x0, kind = READ
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 230000: uvm_test_top.env.apb_agt.driver [run_phase] Start  READ transaction - ADDR: 0x4000200c
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 270000: uvm_test_top.env.apb_agt.driver [run_phase] Completed  READ transaction - ADDR: 0x4000200c - DATA: 0x5
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 270000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 270000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1199     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h4000200c
+#   data             integral         32    'h5       
+#   pslverr          integral         1     'h0       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 270000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x4000200c, data = 0x5, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/reg/uvm_reg_predictor.svh(223) @ 270000: uvm_test_top.env.apb_predictor [REG_PREDICT] Observed READ transaction to register regmodel.FSR: value='h5
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 270000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1199     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h4000200c
+#   data             integral         32    'h5       
+#   pslverr          integral         1     'h0       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 270000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x4000200c, data = 0x5, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO @ 270000: reporter [RegModel] Read  register via map regmodel.apb_map: regmodel.FSR=5
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(128) @ 270000: reporter@@reset_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.IER in map "regmodel.apb_map"...
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(27) @ 270000: reporter [spi_reg2apb_adapter] reg2bus: address = 0x40002008, data = 0x0, kind = READ
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 290000: uvm_test_top.env.apb_agt.driver [run_phase] Start  READ transaction - ADDR: 0x40002008
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 330000: uvm_test_top.env.apb_agt.driver [run_phase] Completed  READ transaction - ADDR: 0x40002008 - DATA: 0x0
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 330000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 330000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1243     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002008
+#   data             integral         32    'h0       
+#   pslverr          integral         1     'h0       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 330000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002008, data = 0x0, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/reg/uvm_reg_predictor.svh(223) @ 330000: uvm_test_top.env.apb_predictor [REG_PREDICT] Observed READ transaction to register regmodel.IER: value='h0
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 330000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1243     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002008
+#   data             integral         32    'h0       
+#   pslverr          integral         1     'h0       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 330000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002008, data = 0x0, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO @ 330000: reporter [RegModel] Read  register via map regmodel.apb_map: regmodel.IER=0
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(128) @ 330000: reporter@@reset_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.DLR in map "regmodel.apb_map"...
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(27) @ 330000: reporter [spi_reg2apb_adapter] reg2bus: address = 0x40002004, data = 0x0, kind = READ
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 350000: uvm_test_top.env.apb_agt.driver [run_phase] Start  READ transaction - ADDR: 0x40002004
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 390000: uvm_test_top.env.apb_agt.driver [run_phase] Completed  READ transaction - ADDR: 0x40002004 - DATA: 0x0
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 390000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 390000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1287     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002004
+#   data             integral         32    'h0       
+#   pslverr          integral         1     'h0       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 390000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002004, data = 0x0, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/reg/uvm_reg_predictor.svh(223) @ 390000: uvm_test_top.env.apb_predictor [REG_PREDICT] Observed READ transaction to register regmodel.DLR: value='h0
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 390000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1287     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002004
+#   data             integral         32    'h0       
+#   pslverr          integral         1     'h0       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 390000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002004, data = 0x0, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO @ 390000: reporter [RegModel] Read  register via map regmodel.apb_map: regmodel.DLR=0
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(128) @ 390000: reporter@@reset_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.LCR in map "regmodel.apb_map"...
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(27) @ 390000: reporter [spi_reg2apb_adapter] reg2bus: address = 0x40002000, data = 0x0, kind = READ
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(38) @ 410000: uvm_test_top.env.apb_agt.driver [run_phase] Start  READ transaction - ADDR: 0x40002000
+# UVM_INFO ./../vip/apb_vip/apb_driver.sv(64) @ 450000: uvm_test_top.env.apb_agt.driver [run_phase] Completed  READ transaction - ADDR: 0x40002000 - DATA: 0x0
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(45) @ 450000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Finished
+# UVM_INFO ./../vip/apb_vip/apb_monitor.sv(46) @ 450000: uvm_test_top.env.apb_agt.monitor [apb_monitor] Send trans from monitor to scoreboard: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1331     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002000
+#   data             integral         32    'h0       
+#   pslverr          integral         1     'h0       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 450000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002000, data = 0x0, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/reg/uvm_reg_predictor.svh(223) @ 450000: uvm_test_top.env.apb_predictor [REG_PREDICT] Observed READ transaction to register regmodel.LCR: value='h0
+# UVM_INFO ./../tb/spi_scoreboard.sv(122) @ 450000: uvm_test_top.env.scoreboard [run_phase] Get transaction from monitor: 
+# ----------------------------------------------------
+# Name               Type             Size  Value     
+# ----------------------------------------------------
+# uvm_sequence_item  apb_transaction  -     @1331     
+#   xact_type        xact_type_enum   1     READ      
+#   addr             integral         32    'h40002000
+#   data             integral         32    'h0       
+#   pslverr          integral         1     'h0       
+# ----------------------------------------------------
+# 
+# UVM_INFO ./../regmodel/spi_reg2apb_adapter.sv(41) @ 450000: reporter [spi_reg2apb_adapter] bus2reg: address = 0x40002000, data = 0x0, kind = UVM_READ, status = UVM_IS_OK
+# UVM_INFO @ 450000: reporter [RegModel] Read  register via map regmodel.apb_map: regmodel.LCR=0
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/base/uvm_objection.svh(1270) @ 450000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO ./../testcases/spi_base_test.sv(104) @ 450000: uvm_test_top [final_phase] Entered...
+# UVM_INFO ./../testcases/spi_base_test.sv(112) @ 450000: uvm_test_top [reg_default_test] --------------------------------
+# UVM_INFO ./../testcases/spi_base_test.sv(113) @ 450000: uvm_test_top [reg_default_test] ----	TEST PASSED	----
+# UVM_INFO ./../testcases/spi_base_test.sv(114) @ 450000: uvm_test_top [reg_default_test] --------------------------------
+# UVM_INFO ./../testcases/spi_base_test.sv(117) @ 450000: uvm_test_top [final_phase] Exitting...
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/base/uvm_report_catcher.svh(705) @ 450000: reporter [UVM/REPORT/CATCHER] 
+# --- UVM Report catcher Summary ---
+# 
+# 
+# Number of demoted UVM_FATAL reports  :    0
+# Number of demoted UVM_ERROR reports  :    0
+# Number of demoted UVM_WARNING reports:    0
+# Number of caught UVM_FATAL reports   :    0
+# Number of caught UVM_ERROR reports   :    0
+# Number of caught UVM_WARNING reports :    0
+# 
+# UVM_INFO /home/venus/QuestaSim/uvm-1.2/src/base/uvm_report_server.svh(847) @ 450000: reporter [UVM/REPORT/SERVER] 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   89
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [NO_DPI_TSTNAME]     1
+# [REG_PREDICT]     6
+# [RNTST]     1
+# [RegModel]     6
+# [STARTING_SEQ]     1
+# [TEST_DONE]     1
+# [UVM/COMP/NAMECHECK]     1
+# [UVM/RELNOTES]     1
+# [UVM/REPORT/CATCHER]     1
+# [UVMTOP]     1
+# [apb_agent]     1
+# [apb_monitor]    13
+# [build_phase]     4
+# [connect_phase]     2
+# [final_phase]     2
+# [reg_default_test]     4
+# [run_phase]    18
+# [spi_agent]     1
+# [spi_reg2apb_adapter]    18
+# [uvm_reg_hw_reset_seq]     6
+# 
+# ** Note: $finish    : /home/venus/QuestaSim/uvm-1.2/src/base/uvm_root.svh(517)
+#    Time: 450 ns  Iteration: 75  Instance: /testbench
+# Saving coverage database on exit...
+# End time: 18:58:53 on Dec 11,2025, Elapsed time: 0:00:06
+# Errors: 0, Warnings: 2

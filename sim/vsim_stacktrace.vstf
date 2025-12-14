@@ -1,0 +1,457 @@
+# Current time Fri Jul 18 21:46:44 2025
+# Program = vsim
+# Id = "10.6d_1"
+# Version = "2018.04"
+# Date = "Apr 11 2018"
+# Platform = linux_x86_64
+# Signature = 5d0396e3c04a0c9cca2ed3b42c497a31
+# 0    0x00007feff11a4415: '/ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/base/uvm_object.svh:997'
+# 1    0x00007feff25518ea: './../spi_vip/spi_driver.sv:147'
+# 2    0x00007feff254c88f: './../spi_vip/spi_driver.sv:31'
+# 3    0x0000000000e73572: '<unknown (@0xe73572)>'
+# 4    0x0000000000492327: '<unknown (@0x492327)>'
+# 5    0x00000000005fdb55: '<unknown (@0x5fdb55)>'
+# 6    0x0000000000a4f28b: '<unknown (@0xa4f28b)>'
+# 7    0x0000000000a53281: '<unknown (@0xa53281)>'
+# 8    0x0000000000a549fe: '<unknown (@0xa549fe)>'
+# 9    0x00000000011ad4ed: '<unknown (@0x11ad4ed)>'
+# 10   0x00000000011b1946: '<unknown (@0x11b1946)>'
+# 11   0x00000000011b3031: '<unknown (@0x11b3031)>'
+# 12   0x00000000011b3396: '<unknown (@0x11b3396)>'
+# 13   0x0000000000e5bdbb: '<unknown (@0xe5bdbb)>'
+# 14   0x000000000125329f: '<unknown (@0x125329f)>'
+# 15   0x00000000012a6e07: '<unknown (@0x12a6e07)>'
+# 16   0x0000000001269d07: '<unknown (@0x1269d07)>'
+# 17   0x0000000001269fe9: '<unknown (@0x1269fe9)>'
+# 18   0x00000000010c3856: '<unknown (@0x10c3856)>'
+# 19   0x0000000000a2b506: '<unknown (@0xa2b506)>'
+# End of Stack Trace
+
+
+# Current time Fri Jul 18 23:11:20 2025
+# Program = vsim
+# Id = "10.6d_1"
+# Version = "2018.04"
+# Date = "Apr 11 2018"
+# Platform = linux_x86_64
+# Signature = 5d0396e3c04a0c9cca2ed3b42c497a31
+# 0    0x00007feff11c4485: '/ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/base/uvm_object.svh:997'
+# 1    0x00007feff25519fa: './../spi_vip/spi_driver.sv:147'
+# 2    0x00007feff254c99f: './../spi_vip/spi_driver.sv:31'
+# 3    0x0000000000e73572: '<unknown (@0xe73572)>'
+# 4    0x0000000000492327: '<unknown (@0x492327)>'
+# 5    0x00000000005fdb55: '<unknown (@0x5fdb55)>'
+# 6    0x0000000000a4f28b: '<unknown (@0xa4f28b)>'
+# 7    0x0000000000a53281: '<unknown (@0xa53281)>'
+# 8    0x0000000000a549fe: '<unknown (@0xa549fe)>'
+# 9    0x00000000011ad4ed: '<unknown (@0x11ad4ed)>'
+# 10   0x00000000011b1946: '<unknown (@0x11b1946)>'
+# 11   0x00000000011b3031: '<unknown (@0x11b3031)>'
+# 12   0x00000000011b3396: '<unknown (@0x11b3396)>'
+# 13   0x0000000000e5bdbb: '<unknown (@0xe5bdbb)>'
+# 14   0x000000000125329f: '<unknown (@0x125329f)>'
+# 15   0x00000000012a6e07: '<unknown (@0x12a6e07)>'
+# 16   0x0000000001269d07: '<unknown (@0x1269d07)>'
+# 17   0x0000000001269fe9: '<unknown (@0x1269fe9)>'
+# 18   0x00000000010c3856: '<unknown (@0x10c3856)>'
+# 19   0x0000000000a2b506: '<unknown (@0xa2b506)>'
+# End of Stack Trace
+
+
+# Current time Fri Jul 18 23:25:01 2025
+# Program = vsim
+# Id = "10.6d_1"
+# Version = "2018.04"
+# Date = "Apr 11 2018"
+# Platform = linux_x86_64
+# Signature = 5d0396e3c04a0c9cca2ed3b42c497a31
+# 0    0x00007feff20300a5: '/ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/seq/uvm_sequence_item.svh:151'
+# 1    0x00007feff2551868: './../spi_vip/spi_driver.sv:149'
+# 2    0x00007feff254c75f: './../spi_vip/spi_driver.sv:32'
+# 3    0x0000000000e73572: '<unknown (@0xe73572)>'
+# 4    0x0000000000492327: '<unknown (@0x492327)>'
+# 5    0x00000000005fdb55: '<unknown (@0x5fdb55)>'
+# 6    0x0000000000a4f28b: '<unknown (@0xa4f28b)>'
+# 7    0x0000000000a53281: '<unknown (@0xa53281)>'
+# 8    0x0000000000a549fe: '<unknown (@0xa549fe)>'
+# 9    0x00000000011ad4ed: '<unknown (@0x11ad4ed)>'
+# 10   0x00000000011b1946: '<unknown (@0x11b1946)>'
+# 11   0x00000000011b3031: '<unknown (@0x11b3031)>'
+# 12   0x00000000011b3396: '<unknown (@0x11b3396)>'
+# 13   0x0000000000e5bdbb: '<unknown (@0xe5bdbb)>'
+# 14   0x000000000125329f: '<unknown (@0x125329f)>'
+# 15   0x00000000012a6e07: '<unknown (@0x12a6e07)>'
+# 16   0x0000000001269d07: '<unknown (@0x1269d07)>'
+# 17   0x0000000001269fe9: '<unknown (@0x1269fe9)>'
+# 18   0x00000000010c3856: '<unknown (@0x10c3856)>'
+# 19   0x0000000000a2b506: '<unknown (@0xa2b506)>'
+# End of Stack Trace
+
+
+# Current time Thu Dec  4 18:39:43 2025
+# Program = vsim
+# Id = "2021.2_1"
+# Version = "2021.05"
+# Date = "May 15 2021"
+# Platform = "linux_x86_64"
+# Signature = dfcd0de65e8129bcb66fdbdef15ad702
+# 0    0x00007fefe664187a: './../vip/apb_vip/apb_monitor.sv:43'
+# 1    0x00007fefe614059f: '/home/venus/QuestaSim/uvm-1.2/src/base/uvm_common_phases.svh:269'
+# 2    0x00007fefe613da57: '/home/venus/QuestaSim/uvm-1.2/src/base/uvm_task_phase.svh:152'
+# 3    0x000000000345ecda: '<unknown (@0x345ecda)>'
+# 4    0x00000000006a863c: '<unknown (@0x6a863c)>'
+# 5    0x00000000004c6dfb: '<unknown (@0x4c6dfb)>'
+# 6    0x00000000006e8203: '<unknown (@0x6e8203)>'
+# 7    0x0000000000c03175: '<unknown (@0xc03175)>'
+# 8    0x0000000000c08033: '<unknown (@0xc08033)>'
+# 9    0x0000000000c09d8e: '<unknown (@0xc09d8e)>'
+# 10   0x0000000000ed3f8d: '<unknown (@0xed3f8d)>'
+# 11   0x00000000038ee98d: '<unknown (@0x38ee98d)>'
+# 12   0x00000000038f2de6: '<unknown (@0x38f2de6)>'
+# 13   0x00000000038f44d1: '<unknown (@0x38f44d1)>'
+# 14   0x00000000038f4836: '<unknown (@0x38f4836)>'
+# 15   0x0000000001145ab9: '<unknown (@0x1145ab9)>'
+# 16   0x000000000399473f: '<unknown (@0x399473f)>'
+# 17   0x00000000039e82b7: '<unknown (@0x39e82b7)>'
+# 18   0x00000000039ab1a7: '<unknown (@0x39ab1a7)>'
+# 19   0x00000000039ab489: '<unknown (@0x39ab489)>'
+# 20   0x0000000003790c2d: '<unknown (@0x3790c2d)>'
+# 21   0x0000000000bcf05c: '<unknown (@0xbcf05c)>'
+# End of Stack Trace
+
+
+# Current time Thu Dec  4 18:44:29 2025
+# Program = vsim
+# Id = "2021.2_1"
+# Version = "2021.05"
+# Date = "May 15 2021"
+# Platform = "linux_x86_64"
+# Signature = dfcd0de65e8129bcb66fdbdef15ad702
+# 0    0x00007fefe5203e8f: '/home/venus/QuestaSim/uvm-1.2/src/base/uvm_object.svh:902'
+# 1    0x00007fefe6641afa: './../vip/apb_vip/apb_monitor.sv:47'
+# 2    0x00007fefe614059f: '/home/venus/QuestaSim/uvm-1.2/src/base/uvm_common_phases.svh:269'
+# 3    0x00007fefe613da57: '/home/venus/QuestaSim/uvm-1.2/src/base/uvm_task_phase.svh:152'
+# 4    0x000000000345ecda: '<unknown (@0x345ecda)>'
+# 5    0x00000000006a863c: '<unknown (@0x6a863c)>'
+# 6    0x00000000004c6dfb: '<unknown (@0x4c6dfb)>'
+# 7    0x00000000006e8203: '<unknown (@0x6e8203)>'
+# 8    0x0000000000c03175: '<unknown (@0xc03175)>'
+# 9    0x0000000000c08033: '<unknown (@0xc08033)>'
+# 10   0x0000000000c09d8e: '<unknown (@0xc09d8e)>'
+# 11   0x0000000000ed3f8d: '<unknown (@0xed3f8d)>'
+# 12   0x00000000038ee98d: '<unknown (@0x38ee98d)>'
+# 13   0x00000000038f2de6: '<unknown (@0x38f2de6)>'
+# 14   0x00000000038f44d1: '<unknown (@0x38f44d1)>'
+# 15   0x00000000038f4836: '<unknown (@0x38f4836)>'
+# 16   0x0000000001145ab9: '<unknown (@0x1145ab9)>'
+# 17   0x000000000399473f: '<unknown (@0x399473f)>'
+# 18   0x00000000039e82b7: '<unknown (@0x39e82b7)>'
+# 19   0x00000000039ab1a7: '<unknown (@0x39ab1a7)>'
+# 20   0x00000000039ab489: '<unknown (@0x39ab489)>'
+# 21   0x0000000003790c2d: '<unknown (@0x3790c2d)>'
+# 22   0x0000000000bcf05c: '<unknown (@0xbcf05c)>'
+# End of Stack Trace
+
+
+# Current time Thu Dec  4 18:47:04 2025
+# Program = vsim
+# Id = "2021.2_1"
+# Version = "2021.05"
+# Date = "May 15 2021"
+# Platform = "linux_x86_64"
+# Signature = dfcd0de65e8129bcb66fdbdef15ad702
+# 0    0x00007fefe664197a: './../vip/apb_vip/apb_monitor.sv:44'
+# 1    0x00007fefe614069f: '/home/venus/QuestaSim/uvm-1.2/src/base/uvm_common_phases.svh:269'
+# 2    0x00007fefe613db57: '/home/venus/QuestaSim/uvm-1.2/src/base/uvm_task_phase.svh:152'
+# 3    0x000000000345ecda: '<unknown (@0x345ecda)>'
+# 4    0x00000000006a863c: '<unknown (@0x6a863c)>'
+# 5    0x00000000004c6dfb: '<unknown (@0x4c6dfb)>'
+# 6    0x00000000006e8203: '<unknown (@0x6e8203)>'
+# 7    0x0000000000c03175: '<unknown (@0xc03175)>'
+# 8    0x0000000000c08033: '<unknown (@0xc08033)>'
+# 9    0x0000000000c09d8e: '<unknown (@0xc09d8e)>'
+# 10   0x0000000000ed3f8d: '<unknown (@0xed3f8d)>'
+# 11   0x00000000038ee98d: '<unknown (@0x38ee98d)>'
+# 12   0x00000000038f2de6: '<unknown (@0x38f2de6)>'
+# 13   0x00000000038f44d1: '<unknown (@0x38f44d1)>'
+# 14   0x00000000038f4836: '<unknown (@0x38f4836)>'
+# 15   0x0000000001145ab9: '<unknown (@0x1145ab9)>'
+# 16   0x000000000399473f: '<unknown (@0x399473f)>'
+# 17   0x00000000039e82b7: '<unknown (@0x39e82b7)>'
+# 18   0x00000000039ab1a7: '<unknown (@0x39ab1a7)>'
+# 19   0x00000000039ab489: '<unknown (@0x39ab489)>'
+# 20   0x0000000003790c2d: '<unknown (@0x3790c2d)>'
+# 21   0x0000000000bcf05c: '<unknown (@0xbcf05c)>'
+# End of Stack Trace
+
+
+# Current time Thu Dec  4 18:48:43 2025
+# Program = vsim
+# Id = "2021.2_1"
+# Version = "2021.05"
+# Date = "May 15 2021"
+# Platform = "linux_x86_64"
+# Signature = dfcd0de65e8129bcb66fdbdef15ad702
+# 0    0x00007fefe664186a: './../vip/apb_vip/apb_monitor.sv:44'
+# 1    0x00007fefe61405cf: '/home/venus/QuestaSim/uvm-1.2/src/base/uvm_common_phases.svh:269'
+# 2    0x00007fefe613da87: '/home/venus/QuestaSim/uvm-1.2/src/base/uvm_task_phase.svh:152'
+# 3    0x000000000345ecda: '<unknown (@0x345ecda)>'
+# 4    0x00000000006a863c: '<unknown (@0x6a863c)>'
+# 5    0x00000000004c6dfb: '<unknown (@0x4c6dfb)>'
+# 6    0x00000000006e8203: '<unknown (@0x6e8203)>'
+# 7    0x0000000000c03175: '<unknown (@0xc03175)>'
+# 8    0x0000000000c08033: '<unknown (@0xc08033)>'
+# 9    0x0000000000c09d8e: '<unknown (@0xc09d8e)>'
+# 10   0x0000000000ed3f8d: '<unknown (@0xed3f8d)>'
+# 11   0x00000000038ee98d: '<unknown (@0x38ee98d)>'
+# 12   0x00000000038f2de6: '<unknown (@0x38f2de6)>'
+# 13   0x00000000038f44d1: '<unknown (@0x38f44d1)>'
+# 14   0x00000000038f4836: '<unknown (@0x38f4836)>'
+# 15   0x0000000001145ab9: '<unknown (@0x1145ab9)>'
+# 16   0x000000000399473f: '<unknown (@0x399473f)>'
+# 17   0x00000000039e82b7: '<unknown (@0x39e82b7)>'
+# 18   0x00000000039ab1a7: '<unknown (@0x39ab1a7)>'
+# 19   0x00000000039ab489: '<unknown (@0x39ab489)>'
+# 20   0x0000000003790c2d: '<unknown (@0x3790c2d)>'
+# 21   0x0000000000bcf05c: '<unknown (@0xbcf05c)>'
+# End of Stack Trace
+
+
+# Current time Thu Dec  4 18:53:08 2025
+# Program = vsim
+# Id = "2021.2_1"
+# Version = "2021.05"
+# Date = "May 15 2021"
+# Platform = "linux_x86_64"
+# Signature = dfcd0de65e8129bcb66fdbdef15ad702
+# 0    0x00007fefe664182a: './../vip/apb_vip/apb_monitor.sv:44'
+# 1    0x00007fefe614058f: '/home/venus/QuestaSim/uvm-1.2/src/base/uvm_common_phases.svh:269'
+# 2    0x00007fefe613da47: '/home/venus/QuestaSim/uvm-1.2/src/base/uvm_task_phase.svh:152'
+# 3    0x000000000345ecda: '<unknown (@0x345ecda)>'
+# 4    0x00000000006a863c: '<unknown (@0x6a863c)>'
+# 5    0x00000000004c6dfb: '<unknown (@0x4c6dfb)>'
+# 6    0x00000000006e8203: '<unknown (@0x6e8203)>'
+# 7    0x0000000000c03175: '<unknown (@0xc03175)>'
+# 8    0x0000000000c08033: '<unknown (@0xc08033)>'
+# 9    0x0000000000c09d8e: '<unknown (@0xc09d8e)>'
+# 10   0x0000000000ed3f8d: '<unknown (@0xed3f8d)>'
+# 11   0x00000000038ee98d: '<unknown (@0x38ee98d)>'
+# 12   0x00000000038f2de6: '<unknown (@0x38f2de6)>'
+# 13   0x00000000038f44d1: '<unknown (@0x38f44d1)>'
+# 14   0x00000000038f4836: '<unknown (@0x38f4836)>'
+# 15   0x0000000001145ab9: '<unknown (@0x1145ab9)>'
+# 16   0x000000000399473f: '<unknown (@0x399473f)>'
+# 17   0x00000000039e82b7: '<unknown (@0x39e82b7)>'
+# 18   0x00000000039ab1a7: '<unknown (@0x39ab1a7)>'
+# 19   0x00000000039ab489: '<unknown (@0x39ab489)>'
+# 20   0x0000000003790c2d: '<unknown (@0x3790c2d)>'
+# 21   0x0000000000bcf05c: '<unknown (@0xbcf05c)>'
+# End of Stack Trace
+
+
+# Current time Fri Dec  5 13:04:29 2025
+# Program = vsim
+# Id = "2021.2_1"
+# Version = "2021.05"
+# Date = "May 15 2021"
+# Platform = "linux_x86_64"
+# Signature = dfcd0de65e8129bcb66fdbdef15ad702
+# 0    0x00007fefe672e925: './../tb/spi_scoreboard.sv:174'
+# 1    0x00007fefe672ff6a: './../tb/spi_scoreboard.sv:198'
+# 2    0x000000000345ecda: '<unknown (@0x345ecda)>'
+# 3    0x00000000004c6e84: '<unknown (@0x4c6e84)>'
+# 4    0x00000000006e8203: '<unknown (@0x6e8203)>'
+# 5    0x0000000000c03175: '<unknown (@0xc03175)>'
+# 6    0x0000000000c08033: '<unknown (@0xc08033)>'
+# 7    0x0000000000c09d8e: '<unknown (@0xc09d8e)>'
+# 8    0x0000000000ed3f8d: '<unknown (@0xed3f8d)>'
+# 9    0x00000000038ee98d: '<unknown (@0x38ee98d)>'
+# 10   0x00000000038f2de6: '<unknown (@0x38f2de6)>'
+# 11   0x00000000038f44d1: '<unknown (@0x38f44d1)>'
+# 12   0x00000000038f4836: '<unknown (@0x38f4836)>'
+# 13   0x0000000001145ab9: '<unknown (@0x1145ab9)>'
+# 14   0x000000000399473f: '<unknown (@0x399473f)>'
+# 15   0x00000000039e82b7: '<unknown (@0x39e82b7)>'
+# 16   0x00000000039ab1a7: '<unknown (@0x39ab1a7)>'
+# 17   0x00000000039ab489: '<unknown (@0x39ab489)>'
+# 18   0x0000000003790c2d: '<unknown (@0x3790c2d)>'
+# 19   0x0000000000bcf05c: '<unknown (@0xbcf05c)>'
+# End of Stack Trace
+
+
+# Current time Fri Dec  5 13:05:22 2025
+# Program = vsim
+# Id = "2021.2_1"
+# Version = "2021.05"
+# Date = "May 15 2021"
+# Platform = "linux_x86_64"
+# Signature = dfcd0de65e8129bcb66fdbdef15ad702
+# 0    0x00007fefe672e925: './../tb/spi_scoreboard.sv:174'
+# 1    0x00007fefe672ff6a: './../tb/spi_scoreboard.sv:198'
+# 2    0x000000000345ecda: '<unknown (@0x345ecda)>'
+# 3    0x00000000004c6e84: '<unknown (@0x4c6e84)>'
+# 4    0x00000000006e8203: '<unknown (@0x6e8203)>'
+# 5    0x0000000000c03175: '<unknown (@0xc03175)>'
+# 6    0x0000000000c08033: '<unknown (@0xc08033)>'
+# 7    0x0000000000c09d8e: '<unknown (@0xc09d8e)>'
+# 8    0x0000000000ed3f8d: '<unknown (@0xed3f8d)>'
+# 9    0x00000000038ee98d: '<unknown (@0x38ee98d)>'
+# 10   0x00000000038f2de6: '<unknown (@0x38f2de6)>'
+# 11   0x00000000038f44d1: '<unknown (@0x38f44d1)>'
+# 12   0x00000000038f4836: '<unknown (@0x38f4836)>'
+# 13   0x0000000001145ab9: '<unknown (@0x1145ab9)>'
+# 14   0x000000000399473f: '<unknown (@0x399473f)>'
+# 15   0x00000000039e82b7: '<unknown (@0x39e82b7)>'
+# 16   0x00000000039ab1a7: '<unknown (@0x39ab1a7)>'
+# 17   0x00000000039ab489: '<unknown (@0x39ab489)>'
+# 18   0x0000000003790c2d: '<unknown (@0x3790c2d)>'
+# 19   0x0000000000bcf05c: '<unknown (@0xbcf05c)>'
+# End of Stack Trace
+
+
+# Current time Fri Dec  5 14:50:28 2025
+# Program = vsim
+# Id = "2021.2_1"
+# Version = "2021.05"
+# Date = "May 15 2021"
+# Platform = "linux_x86_64"
+# Signature = dfcd0de65e8129bcb66fdbdef15ad702
+# 0    0x00007fefe6681aac: './../vip/spi_vip/spi_monitor.sv:150'
+# 1    0x00007fefe667d4ba: './../vip/spi_vip/spi_monitor.sv:40'
+# 2    0x000000000345ecda: '<unknown (@0x345ecda)>'
+# 3    0x00000000004c6e84: '<unknown (@0x4c6e84)>'
+# 4    0x00000000006e8203: '<unknown (@0x6e8203)>'
+# 5    0x0000000000c03175: '<unknown (@0xc03175)>'
+# 6    0x0000000000c08033: '<unknown (@0xc08033)>'
+# 7    0x0000000000c09d8e: '<unknown (@0xc09d8e)>'
+# 8    0x0000000000ed3f8d: '<unknown (@0xed3f8d)>'
+# 9    0x00000000038ee98d: '<unknown (@0x38ee98d)>'
+# 10   0x00000000038f2de6: '<unknown (@0x38f2de6)>'
+# 11   0x00000000038f44d1: '<unknown (@0x38f44d1)>'
+# 12   0x00000000038f4836: '<unknown (@0x38f4836)>'
+# 13   0x0000000001145ab9: '<unknown (@0x1145ab9)>'
+# 14   0x000000000399473f: '<unknown (@0x399473f)>'
+# 15   0x00000000039e82b7: '<unknown (@0x39e82b7)>'
+# 16   0x00000000039ab1a7: '<unknown (@0x39ab1a7)>'
+# 17   0x00000000039ab489: '<unknown (@0x39ab489)>'
+# 18   0x0000000003790c2d: '<unknown (@0x3790c2d)>'
+# 19   0x0000000000bcf05c: '<unknown (@0xbcf05c)>'
+# End of Stack Trace
+
+
+# Current time Wed Dec 10 15:33:33 2025
+# Program = vsim
+# Id = "2021.2_1"
+# Version = "2021.05"
+# Date = "May 15 2021"
+# Platform = "linux_x86_64"
+# Signature = dfcd0de65e8129bcb66fdbdef15ad702
+# 0    0x00007ffff7b536d5: '__memcmp_avx2_movbe + 0x00000000000002f5' in '/lib64/libc.so.6'
+# 1    0x00000000007ae255: '<unknown (@0x7ae255)>'
+# 2    0x00007fefe527307b: '<unknown (@0x7fefe527307b)>'
+# 3    0x000000000345ecda: '<unknown (@0x345ecda)>'
+# 4    0x00000000006a8a2a: '<unknown (@0x6a8a2a)>'
+# 5    0x00000000006a8c69: '<unknown (@0x6a8c69)>'
+# 6    0x00000000006aa863: '<unknown (@0x6aa863)>'
+# 7    0x00000000007aeaf1: '<unknown (@0x7aeaf1)>'
+# 8    0x00000000007f7510: '<unknown (@0x7f7510)>'
+# 9    0x00000000007f7c16: '<unknown (@0x7f7c16)>'
+# 10   0x00000000007f7ec3: '<unknown (@0x7f7ec3)>'
+# 11   0x0000000000807d9f: '<unknown (@0x807d9f)>'
+# 12   0x000000000080a91f: '<unknown (@0x80a91f)>'
+# 13   0x00000000007af92e: '<unknown (@0x7af92e)>'
+# 14   0x00007fefe6f4c0c9: './../tb/testbench.sv:40'
+# 15   0x000000000345ecda: '<unknown (@0x345ecda)>'
+# 16   0x00000000004c6e84: '<unknown (@0x4c6e84)>'
+# 17   0x00000000006e8203: '<unknown (@0x6e8203)>'
+# 18   0x0000000000c03175: '<unknown (@0xc03175)>'
+# 19   0x0000000000c08033: '<unknown (@0xc08033)>'
+# 20   0x0000000000c09d8e: '<unknown (@0xc09d8e)>'
+# 21   0x0000000000ed3f8d: '<unknown (@0xed3f8d)>'
+# 22   0x00000000038ee98d: '<unknown (@0x38ee98d)>'
+# 23   0x00000000038f2de6: '<unknown (@0x38f2de6)>'
+# 24   0x00000000038f44d1: '<unknown (@0x38f44d1)>'
+# 25   0x00000000038f4836: '<unknown (@0x38f4836)>'
+# 26   0x0000000001145ab9: '<unknown (@0x1145ab9)>'
+# 27   0x000000000399473f: '<unknown (@0x399473f)>'
+# 28   0x00000000039e82b7: '<unknown (@0x39e82b7)>'
+# 29   0x00000000039ab1a7: '<unknown (@0x39ab1a7)>'
+# 30   0x00000000039ab489: '<unknown (@0x39ab489)>'
+# 31   0x0000000003790c2d: '<unknown (@0x3790c2d)>'
+# 32   0x0000000000bcf05c: '<unknown (@0xbcf05c)>'
+# End of Stack Trace
+
+
+# Current time Wed Dec 10 15:34:09 2025
+# Program = vsim
+# Id = "2021.2_1"
+# Version = "2021.05"
+# Date = "May 15 2021"
+# Platform = "linux_x86_64"
+# Signature = dfcd0de65e8129bcb66fdbdef15ad702
+# 0    0x00007ffff7b536d5: '__memcmp_avx2_movbe + 0x00000000000002f5' in '/lib64/libc.so.6'
+# 1    0x00000000007ae255: '<unknown (@0x7ae255)>'
+# 2    0x00007fefe527307b: '<unknown (@0x7fefe527307b)>'
+# 3    0x000000000345ecda: '<unknown (@0x345ecda)>'
+# 4    0x00000000006a8a2a: '<unknown (@0x6a8a2a)>'
+# 5    0x00000000006a8c69: '<unknown (@0x6a8c69)>'
+# 6    0x00000000006aa863: '<unknown (@0x6aa863)>'
+# 7    0x00000000007aeaf1: '<unknown (@0x7aeaf1)>'
+# 8    0x00000000007f7510: '<unknown (@0x7f7510)>'
+# 9    0x00000000007f7c16: '<unknown (@0x7f7c16)>'
+# 10   0x00000000007f7ec3: '<unknown (@0x7f7ec3)>'
+# 11   0x0000000000807d9f: '<unknown (@0x807d9f)>'
+# 12   0x000000000080a91f: '<unknown (@0x80a91f)>'
+# 13   0x00000000007af92e: '<unknown (@0x7af92e)>'
+# 14   0x00007fefe6f4c0c9: './../tb/testbench.sv:40'
+# 15   0x000000000345ecda: '<unknown (@0x345ecda)>'
+# 16   0x00000000004c6e84: '<unknown (@0x4c6e84)>'
+# 17   0x00000000006e8203: '<unknown (@0x6e8203)>'
+# 18   0x0000000000c03175: '<unknown (@0xc03175)>'
+# 19   0x0000000000c08033: '<unknown (@0xc08033)>'
+# 20   0x0000000000c09d8e: '<unknown (@0xc09d8e)>'
+# 21   0x0000000000ed3f8d: '<unknown (@0xed3f8d)>'
+# 22   0x00000000038ee98d: '<unknown (@0x38ee98d)>'
+# 23   0x00000000038f2de6: '<unknown (@0x38f2de6)>'
+# 24   0x00000000038f44d1: '<unknown (@0x38f44d1)>'
+# 25   0x00000000038f4836: '<unknown (@0x38f4836)>'
+# 26   0x0000000001145ab9: '<unknown (@0x1145ab9)>'
+# 27   0x000000000399473f: '<unknown (@0x399473f)>'
+# 28   0x00000000039e82b7: '<unknown (@0x39e82b7)>'
+# 29   0x00000000039ab1a7: '<unknown (@0x39ab1a7)>'
+# 30   0x00000000039ab489: '<unknown (@0x39ab489)>'
+# 31   0x0000000003790c2d: '<unknown (@0x3790c2d)>'
+# 32   0x0000000000bcf05c: '<unknown (@0xbcf05c)>'
+# End of Stack Trace
+
+
+# Current time Wed Dec 10 16:52:42 2025
+# Program = vsim
+# Id = "2021.2_1"
+# Version = "2021.05"
+# Date = "May 15 2021"
+# Platform = "linux_x86_64"
+# Signature = dfcd0de65e8129bcb66fdbdef15ad702
+# 0    0x0000000001105df1: '<unknown (@0x1105df1)>'
+# 1    0x00007fefe6f53dcd: './../tb/testbench.sv:43'
+# 2    0x000000000345ecda: '<unknown (@0x345ecda)>'
+# 3    0x00000000004c6e84: '<unknown (@0x4c6e84)>'
+# 4    0x00000000006e8203: '<unknown (@0x6e8203)>'
+# 5    0x0000000000c03175: '<unknown (@0xc03175)>'
+# 6    0x0000000000c08033: '<unknown (@0xc08033)>'
+# 7    0x0000000000c09d8e: '<unknown (@0xc09d8e)>'
+# 8    0x0000000000ed3f8d: '<unknown (@0xed3f8d)>'
+# 9    0x00000000038ee98d: '<unknown (@0x38ee98d)>'
+# 10   0x00000000038f2de6: '<unknown (@0x38f2de6)>'
+# 11   0x00000000038f44d1: '<unknown (@0x38f44d1)>'
+# 12   0x00000000038f4836: '<unknown (@0x38f4836)>'
+# 13   0x0000000001145ab9: '<unknown (@0x1145ab9)>'
+# 14   0x000000000399473f: '<unknown (@0x399473f)>'
+# 15   0x00000000039e82b7: '<unknown (@0x39e82b7)>'
+# 16   0x00000000039ab1a7: '<unknown (@0x39ab1a7)>'
+# 17   0x00000000039ab489: '<unknown (@0x39ab489)>'
+# 18   0x0000000003790c2d: '<unknown (@0x3790c2d)>'
+# 19   0x0000000000bcf05c: '<unknown (@0xbcf05c)>'
+# End of Stack Trace
+
+
