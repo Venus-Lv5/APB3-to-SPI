@@ -1,0 +1,949 @@
+﻿Total Items,,,,,,,,,,
+Pass Items,,,,,,,,,,
+Fail Items,,,,,,,,,,
+NY Items,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,Section,Main Title,Description,Testname,Priority,Method,Owner,Status,Milestone,Remark
+,1,Kiểm tra thanh ghi,,,,,Huy,,,
+,1.1,Kiểm tra đọc giá trị mặc định,"Sử dụng uvm_reg_hw_reset_seq của UVM_RAL để đọc giá trị mặc định của từng thanh ghi
+Điều kiện đạt:
+Giá trị mặc định của các thanh ghi được đọc ra đúng với đặc tả kỹ thuật",reg_default_test,High,UVM_RAL,Huy,,,
+,1.2,Kiểm tra đọc và ghi,"Sử dụng uvm_reg_bit_bash_req của UVM_RAL để kiểm tra việc đọc ghi của từng thanh ghi.
+Điều kiện đạt
+Giá trị đọc ra của từng thanh ghi đúng với những giá trị đã ghi",reg_rw_test,High,UVM_RAL,Huy,,,
+,1.3,Kiểm tra đọc ghi vào vùng rsvd ,"Ghi giá trị ngẫu nhiên và đọc nó từ các thanh ghi ngẫu nhiên có địa chỉ từ 0x4000_2018 đến 0x4000_2FFF
+Điều kiện đạt: Giá trị đọc ra từ các thanh ghi đó là 0xFFFF_FFFF và Pslverr trigger",reg_rsvd_test,High,UVM_RAL,Huy,,,
+,2,Kiểm tra quá trình tạo SCLK,,,,,,,,
+,2.1,50MHz (tần số tạo được lớn nhất),"-Tạo ngẫu nhiên các thông số cấu hình và đảm bảo các thông số div_val = 1;
+-Cấu hình DUT bằng cách ghi vào các thanh ghi ứng với giá trị cấu hình trên.
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên
+Điều kiện đạt:
+- Tất cả những dữ liệu nhận đều đúng với dữ liệu đã giử từ phía bên kia
+- Waveform biểu diễn đúng tần số SCLK là 50MHz",SCLK_50MHz_test,High,Directed,Huy,,,
+,2.2,"100MHz (Giá trị cấm của thanh ghi DLR 
+và nằm ngoài tần số có thể tạo)","-Tạo ngẫu nhiên các thông số cấu hình và đảm bảo các thông số div_val = 0;
+-Cấu hình DUT bằng cách ghi vào các thanh ghi ứng với giá trị cấu hình trên.
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên
+Điều kiện đạt:
+- Pslverr trigger và waveform biểu diễn SCLK với tần số mặc định 50Mhz
+- Tất cả những dữ liệu nhận đều đúng với dữ liệu đã giử từ phía bên kia
+",SCLK_over_test,High,Directed,Huy,,,
+,2.3,Tần số ngẫu nhiên,"-Tạo ngẫu nhiên các thông số cấu hình
+-Cấu hình DUT bằng cách ghi vào các thanh ghi ứng với giá trị cấu hình trên.
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên
+Điều kiện đạt:
+- Tất cả những dữ liệu nhận đều đúng với dữ liệu đã giử từ phía bên kia
+- Waveform biểu diễn đúng tần số SCLK là đã tạo ngẫu nhiên",SCLK_random_test,High,Directed,Huy,,,
+,3,Cấu hình đường truyền (Data x cpol x cpha) kết hợp với tất cả slaver,,,,,,,,
+"Chế độ truyền không liên tục 
+(Non countinous mode)",3.1,8 bits x cpol 0 x cpha 0,"-Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên trong đó đảm bảo word = 8, cpol =0, cpha = 0, cdte = 0 kết hợp với việc chọn slaver_id từ 0 đến 3
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT.
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên.
+Điều kiện đạt:
+-Tất cả dữ liệu nhận đều đúng với dữ liệu gửi từ phía bên kia
+-Slaver được chọn đúng với tham số cấu hình và được nhả đúng thời gian truyền","spi_non_8bit_cpol0_cpha0_slaver0_test
+spi_non_8bit_cpol0_cpha0_slaver1_test
+spi_non_8bit_cpol0_cpha0_slaver2_test
+spi_non_8bit_cpol0_cpha0_slaver3_test",,,,,,
+,3.2,16 bits x cpol 0 x cpha 0,"-Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên trong đó đảm bảo word = 16, cpol =0, cpha = 0, cdte = 0 kết hợp với việc chọn slaver_id từ 0 đến 3
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT.
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên.
+Điều kiện đạt:
+-Tất cả dữ liệu nhận đều đúng với dữ liệu gửi từ phía bên kia
+-Slaver được chọn đúng với tham số cấu hình và được nhả đúng thời gian truyền","spi_non_16bit_cpol0_cpha0_slaver0_test
+spi_non_16bit_cpol0_cpha0_slaver1_test
+spi_non_16bit_cpol0_cpha0_slaver2_test
+spi_non_16bit_cpol0_cpha0_slaver3_test",High,Directed,Huy,,,
+,3.3,8 bits x cpol 0 x cpha 1,"-Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên trong đó đảm bảo word = 8, cpol =0, cpha = 1, cdte = 0 kết hợp với việc chọn slaver_id từ 0 đến 3
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT.
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên.
+Điều kiện đạt:
+-Tất cả dữ liệu nhận đều đúng với dữ liệu gửi từ phía bên kia
+-Slaver được chọn đúng với tham số cấu hình và được nhả đúng thời gian truyền","spi_non_8bit_cpol0_cpha1_slaver0_test
+spi_non_8bit_cpol0_cpha1_slaver1_test
+spi_non_8bit_cpol0_cpha1_slaver2_test
+spi_non_8bit_cpol0_cpha1_slaver3_test",High,Directed,Huy,,,
+,3.4,16 bits x cpol 0 x cpha 1,"-Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên trong đó đảm bảo word = 16, cpol =0, cpha = 1, cdte = 0 kết hợp với việc chọn slaver_id từ 0 đến 3
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT.
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên.
+Điều kiện đạt:
+-Tất cả dữ liệu nhận đều đúng với dữ liệu gửi từ phía bên kia
+-Slaver được chọn đúng với tham số cấu hình và được nhả đúng thời gian truyền","spi_non_16bit_cpol0_cpha1_slaver0_test
+spi_non_16bit_cpol0_cpha1_slaver1_test
+spi_non_16bit_cpol0_cpha1_slaver2_test
+spi_non_16bit_cpol0_cpha1_slaver3_test",High,Directed,Huy,,,
+,3.5,8 bits x cpol 1 x cpha 0,"-Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên trong đó đảm bảo word = 8, cpol =1, cpha = 0, cdte = 0 kết hợp với việc chọn slaver_id từ 0 đến 3
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT.
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên.
+Điều kiện đạt:
+-Tất cả dữ liệu nhận đều đúng với dữ liệu gửi từ phía bên kia
+-Slaver được chọn đúng với tham số cấu hình và được nhả đúng thời gian truyền","spi_non_8bit_cpol1_cpha0_slaver0_test
+spi_non_8bit_cpol1_cpha0_slaver1_test
+spi_non_8bit_cpol1_cpha0_slaver2_test
+spi_non_8bit_cpol1_cpha0_slaver3_test",High,Directed,Huy,,,
+,3.6,16 bits x cpol 1 x cpha 0,"-Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên trong đó đảm bảo word = 16, cpol =1, cpha = 0, cdte = 0 kết hợp với việc chọn slaver_id từ 0 đến 3
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT.
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên.
+Điều kiện đạt:
+-Tất cả dữ liệu nhận đều đúng với dữ liệu gửi từ phía bên kia
+-Slaver được chọn đúng với tham số cấu hình và được nhả đúng thời gian truyền","spi_non_16bit_cpol1_cpha0_slaver0_test
+spi_non_16bit_cpol1_cpha0_slaver1_test
+spi_non_16bit_cpol1_cpha0_slaver2_test
+spi_non_16bit_cpol1_cpha0_slaver3_test",High,Directed,Huy,,,
+,3.7,8 bits x cpol 1 x cpha 1,"-Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên trong đó đảm bảo word = 8, cpol =1, cpha = 1, cdte = 0 kết hợp với việc chọn slaver_id từ 0 đến 3
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT.
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên.
+Điều kiện đạt:
+-Tất cả dữ liệu nhận đều đúng với dữ liệu gửi từ phía bên kia
+-Slaver được chọn đúng với tham số cấu hình và được nhả đúng thời gian truyền","spi_non_8bit_cpol1_cpha1_slaver0_test
+spi_non_8bit_cpol1_cpha1_slaver1_test
+spi_non_8bit_cpol1_cpha1_slaver2_test
+spi_non_8bit_cpol1_cpha1_slaver3_test",High,Directed,Huy,,,
+,3.8,16 bits x cpol 1 x cpha 1,"-Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên trong đó đảm bảo word = 16, cpol =1, cpha = 1, cdte = 0 kết hợp với việc chọn slaver_id từ 0 đến 3
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT.
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên.
+Điều kiện đạt:
+-Tất cả dữ liệu nhận đều đúng với dữ liệu gửi từ phía bên kia
+-Slaver được chọn đúng với tham số cấu hình và được nhả đúng thời gian truyền","spi_non_16bit_cpol1_cpha1_slaver0_test
+spi_non_16bit_cpol1_cpha1_slaver1_test
+spi_non_16bit_cpol1_cpha1_slaver2_test
+spi_non_16bit_cpol1_cpha1_slaver3_test",High,Directed,Huy,,,
+"Chế độ truyền liên tục 
+(Countinous mode)",3.9,8 bits x cpol 0 x cpha 0,"-Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên trong đó đảm bảo word = 8, cpol =0, cpha = 0, cdte = 1 kết hợp với việc chọn slaver_id từ 0 đến 3
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT.
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên.
+Điều kiện đạt:
+-Tất cả dữ liệu nhận đều đúng với dữ liệu gửi từ phía bên kia
+-Slaver được chọn đúng với tham số cấu hình và không được nhả suốt thời gian truyền 3 frame dữ liệu","spi_en_8bit_cpol0_cpha0_slaver0_test
+spi_en_8bit_cpol0_cpha0_slaver1_test
+spi_en_8bit_cpol0_cpha0_slaver2_test
+spi_en_8bit_cpol0_cpha0_slaver3_test",,,,,,
+,3.10,16 bits x cpol 0 x cpha 0,"-Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên trong đó đảm bảo word = 16, cpol =0, cpha = 0, cdte = 1 kết hợp với việc chọn slaver_id từ 0 đến 3
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT.
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên.
+Điều kiện đạt:
+-Tất cả dữ liệu nhận đều đúng với dữ liệu gửi từ phía bên kia
+- Slaver được chọn đúng với tham số cấu hình và không được nhả suốt thời gian truyền 3 frame dữ liệu","spi_en_16bit_cpol0_cpha0_slaver0_test
+spi_en_16bit_cpol0_cpha0_slaver1_test
+spi_en_16bit_cpol0_cpha0_slaver2_test
+spi_en_16bit_cpol0_cpha0_slaver3_test",High,Directed,Huy,,,
+,3.11,8 bits x cpol 0 x cpha 1,"-Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên trong đó đảm bảo word = 8, cpol =0, cpha = 1, cdte = 1 kết hợp với việc chọn slaver_id từ 0 đến 3
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT.
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên.
+Điều kiện đạt:
+-Tất cả dữ liệu nhận đều đúng với dữ liệu gửi từ phía bên kia
+-Slaver được chọn đúng với tham số cấu hình và không được nhả suốt thời gian truyền 3 frame dữ liệu","spi_en_8bit_cpol0_cpha1_slaver0_test
+spi_en_8bit_cpol0_cpha1_slaver1_test
+spi_en_8bit_cpol0_cpha1_slaver2_test
+spi_en_8bit_cpol0_cpha1_slaver3_test",High,Directed,Huy,,,
+,3.12,16 bits x cpol 0 x cpha 1,"-Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên trong đó đảm bảo word = 16, cpol =0, cpha = 1, cdte = 1 kết hợp với việc chọn slaver_id từ 0 đến 3
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT.
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên.
+Điều kiện đạt:
+-Tất cả dữ liệu nhận đều đúng với dữ liệu gửi từ phía bên kia
+-Slaver được chọn đúng với tham số cấu hình và không được nhả suốt thời gian truyền 3 frame dữ liệu","spi_en_16bit_cpol0_cpha1_slaver0_test
+spi_en_16bit_cpol0_cpha1_slaver1_test
+spi_en_16bit_cpol0_cpha1_slaver2_test
+spi_en_16bit_cpol0_cpha1_slaver3_test",High,Directed,Huy,,,
+,3.13,8 bits x cpol 1 x cpha 0,"-Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên trong đó đảm bảo word = 8, cpol =1, cpha = 0, cdte = 1 kết hợp với việc chọn slaver_id từ 0 đến 3
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT.
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên.
+Điều kiện đạt:
+-Tất cả dữ liệu nhận đều đúng với dữ liệu gửi từ phía bên kia
+-Slaver được chọn đúng với tham số cấu hình và không được nhả suốt thời gian truyền 3 frame dữ liệu","spi_en_8bit_cpol1_cpha0_slaver0_test
+spi_en_8bit_cpol1_cpha0_slaver1_test
+spi_en_8bit_cpol1_cpha0_slaver2_test
+spi_en_8bit_cpol1_cpha0_slaver3_test",High,Directed,Huy,,,
+,3.14,16 bits x cpol 1 x cpha 0,"-Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên trong đó đảm bảo word = 16, cpol =1, cpha = 0, cdte = 1 kết hợp với việc chọn slaver_id từ 0 đến 3
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT.
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên.
+Điều kiện đạt:
+-Tất cả dữ liệu nhận đều đúng với dữ liệu gửi từ phía bên kia
+-Slaver được chọn đúng với tham số cấu hình và không được nhả suốt thời gian truyền 3 frame dữ liệu","spi_en_16bit_cpol1_cpha0_slaver0_test
+spi_en_16bit_cpol1_cpha0_slaver1_test
+spi_en_16bit_cpol1_cpha0_slaver2_test
+spi_en_16bit_cpol1_cpha0_slaver3_test",High,Directed,Huy,,,
+,3.15,8 bits x cpol 1 x cpha 1,"-Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên trong đó đảm bảo word = 8, cpol =1, cpha = 1, cdte = 1 kết hợp với việc chọn slaver_id từ 0 đến 3
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT.
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên.
+Điều kiện đạt:
+-Tất cả dữ liệu nhận đều đúng với dữ liệu gửi từ phía bên kia
+-Slaver được chọn đúng với tham số cấu hình và không được nhả suốt thời gian truyền 3 frame dữ liệu","spi_en_8bit_cpol1_cpha1_slaver0_test
+spi_en_8bit_cpol1_cpha1_slaver1_test
+spi_en_8bit_cpol1_cpha1_slaver2_test
+spi_en_8bit_cpol1_cpha1_slaver3_test",High,Directed,Huy,,,
+,3.16,16 bits x cpol 1 x cpha 1,"-Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên trong đó đảm bảo word = 16, cpol =1, cpha = 1, cdte = 1 kết hợp với việc chọn slaver_id từ 0 đến 3
+-Cấu hình chế độ SLAVE cho spi_slave
+-Giử ngẫu nhiên 3 dữ liệu từ DUT đến spi_vif và 3 dữ liệu từ spi_vif đến DUT.
+-Kiểm tra và so sánh các dữ liệu đã gửi và nhận được ở cả hai bên.
+Điều kiện đạt:
+-Tất cả dữ liệu nhận đều đúng với dữ liệu gửi từ phía bên kia
+-Slaver được chọn đúng với tham số cấu hình và không được nhả suốt thời gian truyền 3 frame dữ liệu","spi_en_16bit_cpol1_cpha1_slaver0_test
+spi_en_16bit_cpol1_cpha1_slaver1_test
+spi_en_16bit_cpol1_cpha1_slaver2_test
+spi_en_16bit_cpol1_cpha1_slaver3_test",High,Directed,Huy,,,
+,4,Kiểm tra interrupt,,,,,,,,
+,4.1,rx_fifo_empty,"-Ghi 1 vào bit en_rx_fifo_empty của thanh ghi ISE để bật rx_fifo_empty interrupt
+- Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên và đảm bảo mode của spi_vif là SLAVER
+- Gửi 1 dữ liệu từ spi_vif đến DUT
+-Đọc FSR và ghi lại thời gian lần đầu chân interrupt được bật
+-Chờ spi_vif gửi xong và SS được nhả, đọc FSR và kiểm tra thời điểm interrupt bật lần 2
+Điều kiện đạt:
+Ở lần đầu, rx_empty_status = 0 và interrupt = 0
+Ở lần thứ 2, rx_empty_status = 1 và interrupt = 1",interrupt_rx_empty_en_test,High,Directed,Huy,,,
+,4.2,disable rx_fifo_empty,"-Ghi 0 vào bit en_rx_fifo_empty của thanh ghi ISE để tắt rx_fifo_empty interrupt
+- Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên và đảm bảo mode của spi_vif là SLAVER
+- Gửi 1 dữ liệu từ spi_vif đến DUT
+-Đọc FSR và ghi lại thời gian lần đầu chân interrupt được bật
+-Chờ spi_vif gửi xong và SS được nhả, đọc FSR và kiểm tra thời điểm interrupt bật lần 2
+Điều kiện đạt:
+Ở lần đầu, rx_empty_status = 0 và interrupt = 0
+Ở lần thứ 2, rx_empty_status = 1 và interrupt = 0",interrupt_rx_empty_dis_test,High,Directed,Huy,,,
+,4.3,rx_fifo_full,"-Ghi 1 vào bit en_rx_fifo_full của thanh ghi ISE để bật rx_fifo_full interrupt
+- Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên và đảm bảo mode của spi_vif là SLAVER
+- Gửi 15 dữ liệu từ spi_vif đến DUT, đợi 15 frame dữ liệu được gửi xong
+-Đọc FSR và ghi lại thời gian lần đầu chân interrupt được bật
+- Gửi thêm 1 dữ liệu từ spi_vif đến DUT, đợi nó gửi xong
+-Đọc FSR và kiểm tra thời điểm interrupt bật lần 2
+Điều kiện đạt:
+Ở lần đầu, rx_empty_status = 0 và interrupt = 0
+Ở lần thứ 2, rx_empty_status = 1 và interrupt = 1",interrupt_rx_full_en_test,High,Directed,Huy,,,
+,4.4,disable rx_fifo_full,"-Ghi 0 vào bit en_rx_fifo_full của thanh ghi ISE để tắt rx_fifo_full interrupt
+- Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên và đảm bảo mode của spi_vif là SLAVER
+- Gửi 15 dữ liệu từ spi_vif đến DUT, đợi 15 frame dữ liệu được gửi xong
+-Đọc FSR và ghi lại thời gian lần đầu chân interrupt được bật
+- Gửi thêm 1 dữ liệu từ spi_vif đến DUT, đợi nó gửi xong
+-Đọc FSR và kiểm tra thời điểm interrupt bật lần 2
+Điều kiện đạt:
+Ở lần đầu, rx_empty_status = 0 và interrupt = 0
+Ở lần thứ 2, rx_empty_status = 1 và interrupt = 0",interrupt_rx_full_dis_test,High,Directed,Huy,,,
+,4.5,tx_fifo_empty,"-Ghi 1 vào bit en_tx_fifo_empty của thanh ghi ISE để bật tx_fifo_empty interrupt
+- Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên và đảm bảo mode của spi_vif là SLAVER
+-Đọc FSR và ghi lại thời gian lần đầu chân interrupt được bật
+- Ghi 1 frame dữ liệu vào TBR
+-Đọc FSR và kiểm tra thời điểm interrupt bật lần 2
+Điều kiện đạt:
+Ở lần đầu, rx_empty_status = 0 và interrupt = 0
+Ở lần thứ 2, rx_empty_status = 1 và interrupt = 1",interrupt_tx_empty_en_test,High,Directed,Huy,,,
+,4.6,disable tx_fifo_empty,"-Ghi 0 vào bit en_tx_fifo_empty của thanh ghi ISE để tắt tx_fifo_empty interrupt
+- Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên và đảm bảo mode của spi_vif là SLAVER
+-Đọc FSR và ghi lại thời gian lần đầu chân interrupt được bật
+- Ghi 1 frame dữ liệu vào TBR
+-Đọc FSR và kiểm tra thời điểm interrupt bật lần 2
+Điều kiện đạt:
+Ở lần đầu, rx_empty_status = 0 và interrupt = 0
+Ở lần thứ 2, rx_empty_status = 1 và interrupt = 0",interrupt_tx_empty_dis_test,High,Directed,Huy,,,
+,4.7,tx_fifo_full,"-Ghi 1 vào bit en_tx_fifo_full của thanh ghi ISE để bật tx_fifo_full interrupt
+- Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên và đảm bảo mode của spi_vif là SLAVER
+- Ghi 16 frame dữ liệu vào TBR
+-Đọc FSR và ghi lại thời gian lần đầu chân interrupt được bật
+- Ghi 1 frame dữ liệu vào TBR
+-Đọc FSR và kiểm tra thời điểm interrupt bật lần 2
+Điều kiện đạt:
+Ở lần đầu, rx_empty_status = 0 và interrupt = 0
+Ở lần thứ 2, rx_empty_status = 1 và interrupt = 1",interrupt_tx_full_en_test,High,Directed,Huy,,,
+,4.8,disable tx_fifo_full,"-Ghi 0 vào bit en_tx_fifo_empty của thanh ghi ISE để tắt tx_fifo_empty interrupt
+- Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên và đảm bảo mode của spi_vif là SLAVER
+- Ghi 16 frame dữ liệu vào TBR
+-Đọc FSR và ghi lại thời gian lần đầu chân interrupt được bật
+- Ghi 1 frame dữ liệu vào TBR
+-Đọc FSR và kiểm tra thời điểm interrupt bật lần 2
+Điều kiện đạt:
+Ở lần đầu, rx_empty_status = 0 và interrupt = 0
+Ở lần thứ 2, rx_empty_status = 1 và interrupt = 0",interrupt_tx_full_dis_test,High,Directed,Huy,,,
+,5,Kiểm tra cấu hình động,,,,,,,,
+,5.1,Kiểm tra cấu hình động,"-Cấu hình DUT và spi_vif với các tham số cấu hình ngẫu nhiên và đảm bảo spi_vif hoạt động ở chế độ SLAVER
+-Truyền ngẫu nhiên 1 frame dữ liệu từ DUT đến spi_vif và ngược lại
+-Đợi truyền xong, kiểm tra dữ liệu gửi đi và nhận ở cả hai bên
+-Cấu hình lại DUT và spi_vif với các tham số cấu hình khác lần đầu nhưng vẫn đảm bảo spi_vif hoạt động ở chế độ slaver
+-Truyền ngẫu nhiên 1 frame dữ liệu từ DUT đến spi_vif và ngược lại
+-Đợi truyền xong, kiểm tra dữ liệu gửi đi và nhận ở cả hai bên 
+Điều kiện đạt
+Tất cả dữ liệu nhận được đều giống với dữ liệu được gửi đi từ phía bên kia",dynamic_config_test,Medium,Directed,Huy,,,
+,6,Kiểm tra cấu hình lỗi,,,,,,,,
+,6.1,Cấu hình lỗi độ rộng frame dữ liệu,"-Cấu hình DUT và spi_vif các tham số cấu hình ngẫu nhiên nhưng đảm bảo spi_vif họat động ở chế độ SLAVER và tham số độ dài frame dữ liệu word khác nhau.
+-Truyền 3 frame data ngẫu nhiên từ DUT đến spi_vif và ngược lại
+-Đợi truyền xong, kiểm tra dữ liệu nhận được và dữ liệu gửi từ 2 phía
+Điều kiện đạt:
+Dữ liệu nhận sai dữ liệu so với dữ liệu gửi bên phía còn lại ",mismatch_word_test,Medium,Directed,Huy,,,
+,6.2,Cấu hình cpol lỗi,"-Cấu hình DUT và spi_vif các tham số cấu hình ngẫu nhiên nhưng đảm bảo spi_vif họat động ở chế độ SLAVER và tham số cpol khác nhau
+-Truyền 3 frame data ngẫu nhiên từ DUT đến spi_vif và ngược lại
+-Đợi truyền xong, kiểm tra dữ liệu nhận được và dữ liệu gửi từ 2 phía
+Điều kiện đạt:
+Dữ liệu nhận sai so với dữ liệu gửi bên phía còn lại ",mismatch_cpol_test,Medium,Directed,Huy,,,
+,6.3,Cấu hình cpha lỗi,"-Cấu hình DUT và spi_vif các tham số cấu hình ngẫu nhiên nhưng đảm bảo spi_vif họat động ở chế độ SLAVER và tham số cpha khác nhau
+-Truyền 3 frame data ngẫu nhiên từ DUT đến spi_vif và ngược lại
+-Đợi truyền xong, kiểm tra dữ liệu nhận được và dữ liệu gửi từ 2 phía
+Điều kiện đạt:
+Dữ liệu nhận sai so với dữ liệu gửi bên phía còn lại ",mismatch_cpha_test,Medium,Directed,Huy,,,
+,6.4,Ghi khi FIFO đầy,"-Cấu hình DUT và spi_vif với các tham số ngẫu nhiên nhưng đảm bảo spi_vif hoạt động ở chế độ SLAVER
+-Ghi 17 frame dữ liệu vào TBR với dữ liệu khác 0xFF
+-Ghi thêm 1 frame dữ liệu 0xFF vào TBR 
+-Bắt đầu truyền 16 frame data khác 0xFF từ spi_vif đến DUT
+-Truyền thêm 1 frame dữ liệu 0xFF từ spi_vì đến DUT
+-Chờ quá trình truyền hoàn tất
+-Kiểm tra các dữ liệu gửi và nhận ở 2 phía
+Điều kiện đạt:
+spi_vif không nhận được dữ liệu nào có giá trị 0xFF
+và DUT cũng không nhận được dữ liệu nào có giá trị 0xFF",write_FIFO_full_test,Medium,Directed,Huy,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
